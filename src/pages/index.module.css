@@ -1,0 +1,1524 @@
+.background {
+    position: absolute;
+    top: 11px;
+    left: 188px;
+    background: conic-gradient(from 90deg at 50% 50%, #9283ee 0deg, #9283ee 83.7deg, rgba(26, 0, 79, 0) 107.93deg, rgba(49, 0, 79, 0) 343.2deg, rgba(55, 0, 79, 0) 350.47deg, rgba(152, 17, 242, 0) 359.47deg, #9283ee 360deg, #9283ee 443.7deg);
+    width: 590px;
+    height: 590px;
+}
+.background1 {
+    position: absolute;
+    top: 11px;
+    left: 1368px;
+    background: conic-gradient(from 90deg at 50% 50%, #9283ee 0deg, #9283ee 83.7deg, rgba(26, 0, 79, 0) 107.93deg, rgba(49, 0, 79, 0) 343.2deg, rgba(55, 0, 79, 0) 350.47deg, rgba(152, 17, 242, 0) 359.47deg, #9283ee 360deg, #9283ee 443.7deg);
+    width: 590px;
+    height: 590px;
+    transform:  rotate(180deg);
+    transform-origin: 0 0;
+}
+.background2 {
+    position: absolute;
+    top: 79px;
+    left: 0px;
+    filter: blur(132px);
+    backdrop-filter: blur(200px);
+    background-color: rgba(0, 0, 0, 0.01);
+    width: 1556px;
+    height: 652px;
+}
+.ellipse {
+    position: absolute;
+    top: 0px;
+    left: 379px;
+    filter: blur(554px);
+    border-radius: 50%;
+    background: linear-gradient(90deg, #28a7cf, #9283ee);
+    width: 798px;
+    height: 276px;
+    mix-blend-mode: screen;
+}
+.lamp {
+    position: absolute;
+    top: 1405px;
+    left: 182px;
+    width: 1556px;
+    height: 731px;
+    opacity: 0.5;
+}
+.tradeSmarterWith {
+    margin: 0;
+}
+.solanaSniperBot {
+    background: linear-gradient(91.07deg, #e8dfff, #a945f3 40.6%, #dc52ba 68.6%, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.blockbitSolanaSniperBot {
+    margin: 0;
+    font-size: 82px;
+}
+.heroText {
+    position: absolute;
+    top: 216px;
+    left: 336px;
+    line-height: 120.91%;
+    display: inline-block;
+    text-align: center;
+    width: 1248px;
+    font-size: 58px;
+}
+.heading {
+    position: absolute;
+    top: 422px;
+    left: 824.5px;
+    line-height: 120.91%;
+    color: #c2c2c2;
+    text-align: center;
+}
+.imageRemovebgPreview41 {
+    width: 32px;
+    position: relative;
+    height: 32px;
+    object-fit: cover;
+}
+.buttonLabel {
+    position: relative;
+}
+.bttnHoverdefault {
+    position: absolute;
+    top: 477px;
+    left: 815px;
+    border-radius: 42px;
+    width: 287px;
+    height: 62px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 48px;
+    box-sizing: border-box;
+    gap: 8px;
+    background-image: url('Bttn-Hover/Default.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.instagramCheckMark {
+    width: 16px;
+    position: relative;
+    height: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.termsPrivacy {
+    position: relative;
+    line-height: 120.91%;
+}
+.terms {
+    position: absolute;
+    top: 583px;
+    left: 789px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    text-align: center;
+    font-size: 15px;
+    color: #989898;
+}
+.imageIcon {
+    position: absolute;
+    top: 700px;
+    left: calc(50% - 698px);
+    border-radius: 24px;
+    width: 1396px;
+    height: 605px;
+    overflow: hidden;
+    object-fit: cover;
+}
+.pair {
+    width: 170px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.created {
+    width: 96px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.contractAudit {
+    width: 226px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    flex-shrink: 0;
+}
+.lpBurned {
+    width: 110px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    flex-shrink: 0;
+}
+.status {
+    width: 124px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    flex-shrink: 0;
+}
+.action {
+    width: 287px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    flex-shrink: 0;
+}
+.headRow {
+    align-self: stretch;
+    backdrop-filter: blur(512px);
+    border-radius: 16px 16px 0px 0px;
+    background-color: #121212;
+    border-top: 0.2px solid #515151;
+    border-bottom: 0.2px solid #515151;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    color: rgba(255, 255, 255, 0.5);
+}
+.image11Icon {
+    width: 30px;
+    position: relative;
+    border-radius: 1294.8px;
+    height: 30px;
+    object-fit: cover;
+}
+.pair1 {
+    width: 170px;
+    border-radius: 10.67px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    text-align: right;
+}
+.fad {
+    position: relative;
+    font-weight: 500;
+}
+.outlineinterfacecheckIcon {
+    width: 10px;
+    position: relative;
+    border-radius: 40px;
+    height: 10px;
+}
+.fadParent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2px;
+}
+.frameParent {
+    width: 226px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 8px;
+    font-size: 12px;
+}
+.solanaIcon {
+    width: 20px;
+    position: relative;
+    height: 20px;
+    object-fit: cover;
+}
+.solanaParent {
+    width: 90px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.b1 {
+    width: 106px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    flex-shrink: 0;
+}
+.b2 {
+    width: 126px;
+    position: relative;
+    display: inline-block;
+    color: #ff3a3a;
+    text-align: center;
+    flex-shrink: 0;
+}
+.outlineinterfacecrossIcon {
+    width: 12px;
+    position: relative;
+    border-radius: 24px;
+    height: 12px;
+}
+.lpBurned1 {
+    width: 110px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.waiting {
+    width: 124px;
+    position: relative;
+    display: inline-block;
+    color: #d9a900;
+    text-align: center;
+    flex-shrink: 0;
+}
+.icon {
+    width: 24px;
+    position: relative;
+    height: 24px;
+    object-fit: cover;
+}
+.quickBuyWrapper {
+    border-radius: 52px;
+    background-color: #2b2b2b;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+}
+.cancelWrapper {
+    border-radius: 52px;
+    border: 1px solid #2b2b2b;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+}
+.iconParent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+}
+.row {
+    align-self: stretch;
+    background-color: #141414;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+}
+.image11Icon1 {
+    width: 30px;
+    position: relative;
+    border-radius: 129.48px;
+    height: 30px;
+    object-fit: cover;
+}
+.b5 {
+    width: 126px;
+    position: relative;
+    display: inline-block;
+    color: #17c654;
+    text-align: center;
+    flex-shrink: 0;
+}
+.outlineinterfacecheckIcon6 {
+    width: 12px;
+    position: relative;
+    border-radius: 48px;
+    height: 12px;
+}
+.waiting1 {
+    width: 124px;
+    position: relative;
+    display: inline-block;
+    color: #17c654;
+    text-align: center;
+    flex-shrink: 0;
+}
+.row1 {
+    align-self: stretch;
+    background-color: #0f0f0f;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+}
+.table {
+    position: absolute;
+    top: 106px;
+    left: 174px;
+    filter: blur(2px);
+    width: 1474px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    opacity: 0.5;
+}
+.background3 {
+    position: absolute;
+    top: 209px;
+    left: 47px;
+    filter: blur(44.7px);
+    border-radius: 10px;
+    background: linear-gradient(90deg, #b85fff, #1fe9d2 43%, #6095f0);
+    width: 852px;
+    height: 78px;
+}
+.profileImageIcon {
+    width: 30px;
+    position: relative;
+    border-radius: 25.9px;
+    height: 30px;
+    object-fit: cover;
+}
+.pair10 {
+    width: 117px;
+    border-radius: 10.67px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    text-align: right;
+}
+.mintDisabledParent {
+    display: none;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2px;
+}
+.solanaContainer1 {
+    width: 38px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+.percentage {
+    position: relative;
+    text-align: center;
+}
+.changeRate {
+    position: relative;
+    color: #17c654;
+    text-align: center;
+}
+.row9 {
+    position: absolute;
+    top: 193px;
+    left: 36px;
+    border-radius: 8px;
+    background-color: #0f0f0f;
+    width: 1182px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px 32px;
+    box-sizing: border-box;
+    gap: 24px;
+}
+.background4 {
+    position: absolute;
+    bottom: -43px;
+    left: calc(50% - 429px);
+    filter: blur(172px);
+    border-radius: 10px;
+    background: linear-gradient(90deg, #b85fff, #1fe9d2 43%, #6095f0);
+    width: 865px;
+    height: 78px;
+}
+.tableParent {
+    position: absolute;
+    top: 1625.75px;
+    left: 829.75px;
+    border-radius: 36px;
+    background: linear-gradient(180deg, rgba(207, 243, 255, 0.1), rgba(53, 53, 53, 0.1));
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    width: 828.5px;
+    height: 510.5px;
+    overflow: hidden;
+    font-size: 16px;
+}
+.solana1Icon {
+    position: absolute;
+    top: 1921px;
+    left: 726px;
+    width: 272px;
+    height: 272px;
+    object-fit: cover;
+}
+.columnTitle {
+    width: 127.7px;
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    flex-shrink: 0;
+}
+.columnTitle1 {
+    width: 72.1px;
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    flex-shrink: 0;
+}
+.columnTitle2 {
+    width: 67.6px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.columnTitle4 {
+    width: 79.6px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.action1 {
+    width: 124.7px;
+    height: 9px;
+}
+.headRow1 {
+    align-self: stretch;
+    backdrop-filter: blur(384.48px);
+    border-radius: 12.01px 12.01px 0px 0px;
+    background-color: #121212;
+    border-top: 0.2px solid #515151;
+    border-bottom: 0.2px solid #515151;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+.tokenImageIcon {
+    width: 22.5px;
+    position: relative;
+    border-radius: 972.31px;
+    height: 22.5px;
+    object-fit: cover;
+}
+.pair11 {
+    width: 127.7px;
+    border-radius: 8.02px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    text-align: right;
+}
+.timeSinceCreation {
+    width: 72.1px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.tokenIcon {
+    width: 15px;
+    position: relative;
+    height: 15px;
+    object-fit: cover;
+}
+.investmentDetails {
+    width: 67.6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+.roiPercentage {
+    width: 79.6px;
+    position: relative;
+    display: inline-block;
+    color: #17c654;
+    text-align: center;
+    flex-shrink: 0;
+}
+.pnlDetails {
+    width: 67.6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #17c654;
+}
+.icon10 {
+    width: 18px;
+    position: relative;
+    height: 18px;
+    object-fit: cover;
+}
+.doubleActionIcon {
+    position: absolute;
+    top: calc(50% - 8.25px);
+    left: calc(50% - 8.25px);
+    width: 16.5px;
+    height: 16.5px;
+    object-fit: cover;
+}
+.doubleActionIcon1 {
+    position: absolute;
+    height: 91.67%;
+    width: 91.67%;
+    top: 4.17%;
+    right: 4.16%;
+    bottom: 4.16%;
+    left: 4.17%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.icon11 {
+    width: 18px;
+    position: relative;
+    height: 18px;
+}
+.icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+}
+.closeIcon {
+    width: 18px;
+    position: relative;
+    height: 18px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.actions {
+    width: 124.7px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.row10 {
+    align-self: stretch;
+    background-color: #141414;
+    height: 57.1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    box-sizing: border-box;
+}
+.tokenImageIcon1 {
+    width: 22.5px;
+    position: relative;
+    border-radius: 97.23px;
+    height: 22.5px;
+    object-fit: cover;
+}
+.row11 {
+    align-self: stretch;
+    background-color: #0f0f0f;
+    height: 57.1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    box-sizing: border-box;
+}
+.tokenImageIcon2 {
+    width: 22.5px;
+    position: relative;
+    border-radius: 19.45px;
+    height: 22.5px;
+    object-fit: cover;
+}
+.tokenImageIcon5 {
+    width: 22.5px;
+    position: relative;
+    border-radius: 121.54px;
+    height: 22.5px;
+    object-fit: cover;
+}
+.roiPercentage5 {
+    width: 79.6px;
+    position: relative;
+    display: inline-block;
+    color: #ff3a3a;
+    text-align: center;
+    flex-shrink: 0;
+}
+.pnlDetails5 {
+    width: 67.6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #ff3a3a;
+}
+.tableFilter {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.body {
+    position: absolute;
+    top: 96px;
+    left: 104px;
+    width: 860.6px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.bodyParent {
+    position: absolute;
+    top: 3189.75px;
+    left: 829.75px;
+    border-radius: 36px;
+    background: linear-gradient(180deg, rgba(207, 243, 255, 0.1), rgba(53, 53, 53, 0.1));
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    width: 828.5px;
+    height: 510.5px;
+    overflow: hidden;
+    font-size: 12.01px;
+}
+.maskGroupIcon {
+    position: absolute;
+    top: 3463px;
+    left: 1480px;
+    width: 200.4px;
+    height: 312px;
+    object-fit: cover;
+}
+.autoBuy {
+    flex: 1;
+    position: relative;
+}
+.sidebarMenu {
+    flex: 1;
+    border-radius: 7.22px;
+    background-color: rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 14.4px;
+}
+.sidebarMenu1 {
+    flex: 1;
+    border-radius: 7.22px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 14.4px;
+    color: rgba(255, 255, 255, 0.5);
+}
+.tabs {
+    width: 559.6px;
+    border-radius: 14.44px;
+    background-color: rgba(255, 255, 255, 0.02);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 7.2px;
+    box-sizing: border-box;
+    gap: 7.2px;
+}
+.text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 3.6px;
+}
+.solanaIcon9 {
+    width: 14.4px;
+    position: relative;
+    height: 14.4px;
+    object-fit: cover;
+}
+.dropdownIcon {
+    width: 14.4px;
+    position: relative;
+    height: 14.4px;
+}
+.dropdown {
+    width: 100.2px;
+    border-radius: 28.88px;
+    border: 0.9px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    height: 28.9px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 7.2px;
+    text-align: left;
+    font-size: 12.64px;
+}
+.settingItem {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.warningIcon {
+    width: 21.7px;
+    position: relative;
+    height: 21.7px;
+}
+.warningText {
+    flex: 1;
+    position: relative;
+    background: linear-gradient(90deg, #28a7cf, #9283ee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.warning {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4.5px;
+    text-align: left;
+}
+.dropdown1 {
+    width: 100.2px;
+    border-radius: 28.88px;
+    border: 0.9px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    height: 28.9px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 7.2px;
+    font-size: 12.64px;
+}
+.conditionsContainer {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16.2px;
+    text-align: left;
+}
+.lpBurnedAuditIconLabel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7.2px;
+}
+.toggleChild {
+    position: absolute;
+    height: 62.5%;
+    width: 90.36%;
+    top: 18.8%;
+    right: 9.64%;
+    bottom: 18.7%;
+    left: 0%;
+    border-radius: 3.61px;
+    background-color: #17c654;
+}
+.toggleItem {
+    position: absolute;
+    height: 100%;
+    width: 51.43%;
+    top: 0%;
+    right: 0.22%;
+    bottom: 0%;
+    left: 48.35%;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.toggle {
+    width: 28px;
+    position: relative;
+    height: 14.4px;
+}
+.lpBurnedAuditContainer {
+    align-self: stretch;
+    border-radius: 14.44px;
+    background-color: rgba(26, 26, 26, 0.4);
+    height: 65px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14.4px;
+    box-sizing: border-box;
+}
+.solana {
+    width: 14.4px;
+    position: relative;
+    height: 14.4px;
+    display: none;
+}
+.text4 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 7.2px;
+}
+.dropdownScuare {
+    width: 101.1px;
+    border-radius: 7.22px;
+    background-color: #0f0f0f;
+    border: 0.9px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    height: 37px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 7.2px;
+    opacity: 0.5;
+    text-align: left;
+}
+.whaleCheckerContainer {
+    align-self: stretch;
+    border-radius: 14.44px;
+    background-color: rgba(26, 26, 26, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14.4px;
+}
+.advancedSettingsContainer {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 8.1px;
+}
+.bttnMaster {
+    align-self: stretch;
+    flex: 1;
+    border-radius: 14.44px;
+    background: linear-gradient(90deg, #28a7cf, #9283ee);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 28.9px;
+}
+.bttnStates {
+    width: 253.6px;
+    height: 54.2px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.bttnMaster1 {
+    align-self: stretch;
+    flex: 1;
+    border-radius: 14.44px;
+    background-color: #202020;
+    border: 0.9px solid #676767;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 28.9px;
+}
+.bttnStates1 {
+    width: 252.7px;
+    height: 54.2px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.buttons {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 9.9px;
+    text-align: center;
+    font-size: 16px;
+}
+.contentContainer {
+    align-self: stretch;
+    border-radius: 14.44px;
+    background-color: rgba(255, 255, 255, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 21.7px;
+    gap: 21.7px;
+    text-align: right;
+    font-size: 14.44px;
+}
+.mainContainer {
+    position: absolute;
+    top: 70px;
+    left: 290px;
+    width: 559.6px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 3.6px;
+}
+.header {
+    position: relative;
+    line-height: 150%;
+}
+.infoIcon {
+    width: 21.3px;
+    position: relative;
+    height: 21.3px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.title {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7.1px;
+}
+.dropdownIcon5 {
+    width: 14.2px;
+    position: relative;
+    height: 14.2px;
+}
+.input {
+    width: 90.1px;
+    border-radius: 7.1px;
+    background-color: #0f0f0f;
+    border: 0.9px solid #7a7a7a;
+    box-sizing: border-box;
+    height: 42.6px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 14.2px;
+}
+.label {
+    position: relative;
+    font-size: 17.76px;
+    line-height: 150%;
+}
+.sort3 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 21.3px;
+    font-size: 14.2px;
+}
+.takeProfits {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 14.2px;
+}
+.toggleInner {
+    position: absolute;
+    height: 62.68%;
+    width: 90.55%;
+    top: 18.76%;
+    right: 9.45%;
+    bottom: 18.57%;
+    left: 0%;
+    border-radius: 3.55px;
+    background-color: #17c654;
+}
+.ellipseDiv {
+    position: absolute;
+    height: 100%;
+    width: 51.64%;
+    top: 0%;
+    right: -0.06%;
+    bottom: 0%;
+    left: 48.42%;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.toggle1 {
+    width: 27.5px;
+    position: relative;
+    height: 14.2px;
+}
+.container1 {
+    align-self: stretch;
+    border-radius: 14.2px;
+    background-color: #1a1a1a;
+    height: 63.9px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14.2px;
+    box-sizing: border-box;
+    font-size: 14.2px;
+}
+.container {
+    position: absolute;
+    top: 155.78px;
+    left: 27.78px;
+    box-shadow: 0px 20px 32.3px rgba(15, 15, 15, 0.3);
+    backdrop-filter: blur(17.76px);
+    border-radius: 14.2px;
+    background: linear-gradient(180deg, rgba(207, 243, 255, 0.1), rgba(53, 53, 53, 0.1));
+    border: 0.4px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    width: 269.4px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 14.2px;
+    gap: 14.2px;
+    text-align: right;
+    font-size: 17.76px;
+}
+.backgroundParent {
+    position: absolute;
+    top: 2410.75px;
+    left: 261.75px;
+    border-radius: 36px;
+    background: linear-gradient(180deg, rgba(207, 243, 255, 0.1), rgba(53, 53, 53, 0.1));
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    width: 828.5px;
+    height: 510.5px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 16px;
+}
+.connectWalletChild {
+    position: absolute;
+    top: 1377.5px;
+    left: 261.5px;
+    border-right: 1px solid rgba(26, 33, 56, 0);
+    box-sizing: border-box;
+    width: 1px;
+    height: 1001px;
+}
+.connectWalletItem {
+    position: absolute;
+    top: 2934.5px;
+    left: 261.5px;
+    border-right: 1px solid rgba(26, 33, 56, 0);
+    box-sizing: border-box;
+    width: 1px;
+    height: 1001px;
+}
+.connectWalletInner {
+    position: absolute;
+    top: 2220.5px;
+    left: 1257.5px;
+    border-right: 1px solid rgba(26, 33, 56, 0);
+    box-sizing: border-box;
+    width: 1px;
+    height: 1001px;
+}
+.containerIcon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1444.3px;
+    height: 1488.1px;
+    object-fit: contain;
+}
+.maskGroupIcon1 {
+    position: absolute;
+    top: 364.35px;
+    left: 406.47px;
+    width: 719.4px;
+    height: 645.1px;
+    object-fit: contain;
+}
+.maskGroupIcon2 {
+    position: absolute;
+    top: 414.6px;
+    left: 208.45px;
+    width: 814.6px;
+    height: 756.1px;
+    object-fit: contain;
+}
+.background7 {
+    position: absolute;
+    top: -488px;
+    left: -411.08px;
+    width: 1444.3px;
+    height: 1488.1px;
+}
+.mainFrameIcon {
+    position: absolute;
+    height: 112.43%;
+    width: 95.54%;
+    top: 6.51%;
+    right: -14.85%;
+    bottom: -18.93%;
+    left: 19.3%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: contain;
+}
+.discordChild {
+    position: absolute;
+    top: calc(50% - 41px);
+    left: calc(50% + 570.38px);
+    filter: blur(200px);
+    border-radius: 50%;
+    background-color: #0f0f0f;
+    width: 374.9px;
+    height: 940.4px;
+    transform:  rotate(78.9deg);
+    transform-origin: 0 0;
+    opacity: 0.7;
+}
+.discord {
+    position: absolute;
+    top: calc(50% + 1719.75px);
+    left: calc(50% - 133.25px);
+    border-radius: 36px;
+    background: linear-gradient(180deg, rgba(207, 243, 255, 0.1), rgba(53, 53, 53, 0.1));
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    width: 689.5px;
+    height: 338.5px;
+    overflow: hidden;
+}
+.heading1 {
+    align-self: stretch;
+    position: relative;
+    line-height: 120.91%;
+}
+.subheading {
+    align-self: stretch;
+    position: relative;
+    font-size: 20px;
+    line-height: 120.91%;
+    background: linear-gradient(90deg, #00ffd1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.container2 {
+    position: absolute;
+    top: 17.16px;
+    left: 59px;
+    width: 474px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+}
+.tip {
+    position: absolute;
+    top: 0px;
+    left: 1px;
+    border-radius: 20px;
+    background-color: #243e43;
+    border: 1px solid rgba(12, 77, 105, 0);
+    box-sizing: border-box;
+    width: 595px;
+    height: 128px;
+    overflow: hidden;
+}
+.groupChild {
+    position: absolute;
+    top: 106.91px;
+    left: 0px;
+    width: 67.5px;
+    height: 57.4px;
+    object-fit: contain;
+}
+.tipParent {
+    position: absolute;
+    top: 4015.84px;
+    left: 452px;
+    filter: drop-shadow(0px 20px 32.3px rgba(15, 15, 15, 0.3));
+    width: 596px;
+    height: 164.3px;
+    font-size: 48px;
+}
+.joinDiscord {
+    position: relative;
+    z-index: 0;
+}
+.discordIcon {
+    width: 63.6px;
+    position: absolute;
+    margin: 0 !important;
+    top: 15.85px;
+    left: 209px;
+    height: 63.6px;
+    object-fit: contain;
+    z-index: 1;
+}
+.discordIcon1 {
+    width: 67.3px;
+    position: absolute;
+    margin: 0 !important;
+    top: -24.15px;
+    left: -7px;
+    height: 67.3px;
+    object-fit: contain;
+    z-index: 2;
+}
+.joinDiscordParent {
+    width: 259px;
+    border-radius: 42px;
+    background: radial-gradient(50% 50% at 50% 50%, #8c9eff, #889af8 36.8%, #7e8fe6 88.9%, #7b8ce1);
+    height: 62px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 48px;
+    box-sizing: border-box;
+    position: relative;
+    gap: 10px;
+}
+.connectWalletInner1 {
+    position: absolute;
+    top: 4196.15px;
+    left: 452px;
+    width: 1016px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 0px 0px 60px;
+    box-sizing: border-box;
+}
+.autoScan {
+    align-self: stretch;
+    position: relative;
+    font-size: 48px;
+    line-height: 120.91%;
+}
+.frameChild {
+    align-self: stretch;
+    width: 4px;
+    position: relative;
+    background: linear-gradient(180deg, #2593f9 18.6%, #00ffd1);
+}
+.scanTheSolana {
+    flex: 1;
+    position: relative;
+    line-height: 142%;
+}
+.rectangleParent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    color: #d7f6f3;
+}
+.moreThanIcon {
+    width: 24px;
+    position: relative;
+    height: 24px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.startTradingParent {
+    border-radius: 42px;
+    background: linear-gradient(90deg, #28a7cf, #9283ee);
+    height: 62px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 28px 24px 36px;
+    box-sizing: border-box;
+    gap: 8px;
+    text-align: center;
+}
+.textContainer {
+    position: absolute;
+    top: 1681px;
+    left: 262px;
+    width: 402px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 32px;
+}
+.iconParent7 {
+    position: absolute;
+    top: 2516px;
+    left: 1256px;
+    width: 402px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 32px;
+}
+.frameInner {
+    width: 50px;
+    position: relative;
+    border-radius: 8px;
+    height: 50px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.extremeSpeed {
+    position: relative;
+    font-size: 48px;
+    line-height: 120.91%;
+}
+.rectangleContainer {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    text-align: left;
+    color: #d7f6f3;
+}
+.startTradingContainer {
+    border-radius: 42px;
+    background: linear-gradient(90deg, #28a7cf, #9283ee);
+    height: 62px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 28px 24px 36px;
+    box-sizing: border-box;
+    gap: 8px;
+}
+.frameParent6 {
+    position: absolute;
+    top: 3286px;
+    left: 262px;
+    width: 402px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 32px;
+    text-align: center;
+}
+.blockbitLogo321 {
+    width: 201px;
+    position: relative;
+    height: 39px;
+    object-fit: cover;
+}
+.xParent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+}
+.header1 {
+    position: absolute;
+    top: 46px;
+    left: calc(50% - 840px);
+    width: 1680px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.termsOfUse {
+    position: relative;
+    font-size: 15px;
+    line-height: 120.91%;
+}
+.header2 {
+    position: absolute;
+    bottom: 72px;
+    left: calc(50% - 840px);
+    width: 1680px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 16px;
+}
+.connectWallet {
+    width: 100%;
+    position: relative;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(146, 131, 238, 0.2), rgba(0, 204, 235, 0.1) 32%, rgba(43, 69, 204, 0) 82.5%), radial-gradient(50% 50% at 50% 50%, #063f69 20.1%, #1a0d40 40.1%, #0f0f0f 67.1%);
+    height: 4496px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 20px;
+    color: #fff;
+    font-family: Inter;
+}
+
