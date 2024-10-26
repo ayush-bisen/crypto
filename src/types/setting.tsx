@@ -1,37 +1,37 @@
 export interface ISettingInfo {
-  is_bot_on: string,
-  run_started_at: string,
-  run_ended_at: string,
-  pending_pooled_sol_min: string,
-  pending_pooled_sol_max: string,
-  pending_pooled_token_min: string,
-  pending_pooled_token_max: string,
-  pending_can_freeze_audit: number,
-  pending_can_mint_audit: number,
-  pending_live_mins: number,
-  buy_initial_invest_sol: string,
-  buy_pooled_sol_min: string,
-  buy_pooled_sol_max: string,
-  buy_pooled_token_min: string,
-  buy_pooled_token_max: string,
-  buy_24h_change_min: string,
-  buy_24h_change_max: string,
-  buy_lp_burned_audit: number,
-  buy_top_10_audit: number,
-  buy_whale_check_percent: number,
-  priority_fee: string,
-  bibrary_fee: string,
-  slippage: string,
-  tp_percent_1: string,
-  tp_amount_1: string,
-  tp_percent_2: string,
-  tp_amount_2: string,
-  tp_percent_3: string,
-  tp_amount_3: string,
-  sl_percent_1: string,
-  sl_amount_1: string,
-  tsl_on: number,
-  tsl_percent: string,
+  is_bot_on: string;
+  run_started_at: string;
+  run_ended_at: string;
+  pending_pooled_sol_min: string;
+  pending_pooled_sol_max: string;
+  pending_pooled_token_min: string;
+  pending_pooled_token_max: string;
+  pending_can_freeze_audit: number;
+  pending_can_mint_audit: number;
+  pending_live_mins: number;
+  buy_initial_invest_sol: string;
+  buy_pooled_sol_min: string;
+  buy_pooled_sol_max: string;
+  buy_pooled_token_min: string;
+  buy_pooled_token_max: string;
+  buy_24h_change_min: string;
+  buy_24h_change_max: string;
+  buy_lp_burned_audit: number;
+  buy_top_10_audit: number;
+  buy_whale_check_percent: number;
+  priority_fee: string;
+  bibrary_fee: string;
+  slippage: string;
+  tp_percent_1: string;
+  tp_amount_1: string;
+  tp_percent_2: string;
+  tp_amount_2: string;
+  tp_percent_3: string;
+  tp_amount_3: string;
+  sl_percent_1: string;
+  sl_amount_1: string;
+  tsl_on: number;
+  tsl_percent: string;
 }
 
 export const defaultSettingInfo: ISettingInfo = {
@@ -71,7 +71,7 @@ export const defaultSettingInfo: ISettingInfo = {
 };
 
 export interface SettingProps {
-  setting?: ISettingInfo,
-  setProfileIamgeData?: any,
-  onChangeSettingValue: (e: any, prop: string, changedValue?: any) => void
+  setting?: ISettingInfo;
+  setProfileIamgeData?: any;
+  onChangeSettingValue: (e: any, prop: string, changedValue?: any) => void;
 }

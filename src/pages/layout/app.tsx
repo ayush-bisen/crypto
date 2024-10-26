@@ -37,7 +37,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
       <NextUIProvider>
         <UpdateSettingProvider>
           <div
-            className={`${inter.className} h-screen bg-[#121212] flex flex-col`}
+            className={`${inter.className} h-screen   bg-[#0F0F0F] flex flex-col`}
           >
             <ToastContainer></ToastContainer>
             <Navigation />

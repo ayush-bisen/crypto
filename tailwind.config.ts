@@ -15,11 +15,14 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      // screens: {
+      //   xs: { max: "500px" },
+      //   xss: { max: "600px" },
+      // },
       screens: {
-        'xs': { 'max': '400px' },
-        'xss':{'max': '600px'}
+        xs: "500px", // Custom breakpoint for 400px
+        es: "300px",
       },
-      
     },
   },
   plugins: [nextui()],
