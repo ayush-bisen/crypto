@@ -297,6 +297,8 @@ const TabTpSl = (props: SettingProps) => {
               options={["0.1", "0.5", "1", "2", "5"]}
               value={setting?.buy_initial_invest_sol || "0.1"}
               onChange={handleChange}
+              add={"min"}
+              width={180}
             />
             {/* <div className="bg-[#0F0F0F] border border-[#7A7A7A] flex  w-[200px] h-[30px] gap-4 rounded-[8px] items-center mt-[8px]">
               <div className="w-full px-1">

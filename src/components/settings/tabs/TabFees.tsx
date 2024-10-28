@@ -1,8 +1,8 @@
 import { Info, Lock } from "lucide-react";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import InfoCard from "@/components/InfoCard";
-import IMG_SOL from '@/assets/images/sol.png';
+import IMG_SOL from "@/assets/images/sol.png";
 import { SettingProps } from "@/types/setting";
 
 const TabFees = (props: SettingProps) => {
@@ -24,9 +24,24 @@ const TabFees = (props: SettingProps) => {
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   const handleSelect = (e: any, option: any) => {
-    onChangeSettingValue(e, 'slippage', option.value);
+    onChangeSettingValue(e, "slippage", option.value);
     setIsOpen(false);
   };
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setIsOpen(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -44,22 +59,19 @@ const TabFees = (props: SettingProps) => {
           </div>
         </div>
         <div className="bg-[#0F0F0F] border  border-[#7A7A7A] flex w-full h-[38px]  gap-1  rounded-[12px] items-center mt-[8px]">
-              <div className="flex items-center gap-1 px-2 w-fit">
-                <Image src={IMG_SOL} width={25} height={25} alt="image" />
-              </div>
-              <div className="h-6 w-[2px] bg-[#404040]"></div>
+          <div className="flex items-center gap-1 px-2 w-fit">
+            <Image src={IMG_SOL} width={25} height={25} alt="image" />
+          </div>
+          <div className="h-6 w-[2px] bg-[#404040]"></div>
 
-              <div className="w-full px-1">
-                <input
-                  type="text"
-                  className=" text-white text-[14px] bg-transparent border-none outline-none hover:border-none  p-1.5 w-full"
-                  value="Optemized"
-                />
-              </div>
-            </div>
-     
-
-       
+          <div className="w-full px-1">
+            <input
+              type="text"
+              className=" text-white text-[14px] bg-transparent border-none outline-none hover:border-none  p-1.5 w-full"
+              value="Optemized"
+            />
+          </div>
+        </div>
 
         <div className="flex items-center gap-1 py-1 mt-[16px]">
           <p className="text-[14px] font-bold text-[#FFFFFF]">Bribery Fee</p>
@@ -74,19 +86,19 @@ const TabFees = (props: SettingProps) => {
           </div>
         </div>
         <div className="bg-[#0F0F0F] border  border-[#7A7A7A] flex w-full h-[38px]  gap-1  rounded-[12px] items-center mt-[8px]">
-              <div className="flex items-center gap-1 px-2 w-fit">
-                <Image src={IMG_SOL} width={25} height={25} alt="image" />
-              </div>
-              <div className="h-6 w-[2px] bg-[#404040]"></div>
+          <div className="flex items-center gap-1 px-2 w-fit">
+            <Image src={IMG_SOL} width={25} height={25} alt="image" />
+          </div>
+          <div className="h-6 w-[2px] bg-[#404040]"></div>
 
-              <div className="w-full px-1">
-                <input
-                  type="text"
-                  className=" text-white text-[14px] bg-transparent border-none outline-none hover:border-none  p-1.5 w-full"
-                  value="Optemized"
-                />
-              </div>
-            </div>
+          <div className="w-full px-1">
+            <input
+              type="text"
+              className=" text-white text-[14px] bg-transparent border-none outline-none hover:border-none  p-1.5 w-full"
+              value="Optemized"
+            />
+          </div>
+        </div>
         <div className="flex items-center gap-1 py-1 mt-[16px]">
           <p className="text-[14px] font-bold text-[#FFFFFF]">Slippage</p>
           <div className="relative group">
@@ -100,7 +112,10 @@ const TabFees = (props: SettingProps) => {
           </div>
         </div>
 
-        <div className="relative inline-block text-left mt-[8px]">
+        <div
+          ref={dropdownRef}
+          className="relative inline-block text-left mt-[8px]"
+        >
           <div>
             <button
               type="button"
@@ -131,8 +146,9 @@ const TabFees = (props: SettingProps) => {
                   <button
                     key={option.value}
                     onClick={(e) => handleSelect(e, option)}
-                    className={`${option.locked ? "text-[#C0C0C0]" : "text-[#C0C0C0]"
-                      } group flex justify-between items-center px-4 py-2 text-sm w-full`}
+                    className={`${
+                      option.locked ? "text-[#C0C0C0]" : "text-[#C0C0C0]"
+                    } group flex justify-between items-center px-4 py-2 text-sm w-full`}
                     disabled={option.locked}
                   >
                     {option.value}%
@@ -143,7 +159,6 @@ const TabFees = (props: SettingProps) => {
           )}
         </div>
       </div>
-      
     </>
   );
 };

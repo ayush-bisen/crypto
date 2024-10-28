@@ -25,6 +25,8 @@ import ADS from "@/assets/images/Frame5498.svg";
 import ASD from "@/assets/images/Group97.svg";
 import ASDE from "@/assets/images/Discord.png";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
+import LampImage from "@/assets/images/Lamp.png";
+import GradientIMG from "@/assets/images/gradient.png";
 
 export default function Home() {
   const router = useRouter();
@@ -139,15 +141,21 @@ export default function Home() {
         {/* section-2 start from here */}
 
         <div
-          className=" flex flex-col justify-between items-start mt-[100px] lg:flex-row md:mt-[100px] lg:mt-[200px] relative z-10 bg-cover bg-center   w-full max-w-[1332px] m-auto gap-4 lg:gap-52 px-[20px]"
+          className=" flex flex-col justify-between items-start mt-[100px] lg:flex-row md:mt-[100px] lg:mt-[200px] relative z-10 bg-cover bg-center w-full max-w-[1332px] m-auto gap-4 lg:gap-52 px-[20px]"
           // px-[20px] md:px-[50px] lg:px-[169px] md:px-[80px] h-[700px]
           style={{
-            backgroundImage: `url('/assets/images/Lamp.png')`,
+            backgroundImage: `url('./assets/images/Lamp.png')`,
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
             opacity: 999,
           }}
         >
+          {/* image for the background  */}
+          <Image
+            src={LampImage}
+            alt="IMAGE"
+            className="absolute top-[-30%] lg:top-[-100%]"
+          />
           {/* div for the line */}
           <div
             className="absolute self-stretch flex-grow-0 flex-shrink-0 w-[0.4px] bg-gray-600  h-[500px] left-[20px] sm:bottom-[138px] xs:bottom-0 md:bottom-[265px] lg:bottom-[-90px]"

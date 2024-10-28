@@ -1,16 +1,14 @@
 import React, { useState, FC, useRef, useEffect } from "react";
+import IMG_SOL from "@/assets/images/sol.png";
+import Image from "next/image";
 
-interface CustomDropdownList {
+interface AutoBuyDropdown {
   options: string[];
   value: string;
   onChange: (value: string) => void;
 }
 
-const CustomDroplist: FC<CustomDropdownList> = ({
-  options,
-  value,
-  onChange,
-}) => {
+const AutoBuyDropdown: FC<AutoBuyDropdown> = ({ options, value, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const handleOptionClick = (option: string) => {
@@ -44,6 +42,9 @@ const CustomDroplist: FC<CustomDropdownList> = ({
         }}
       >
         <span className="text-white w-[85px]">{value}</span>
+
+        <Image src={IMG_SOL} width={25} height={25} alt="image" />
+
         <svg
           className="-mr-1 ml-2 h-5 w-5"
           xmlns="http://www.w3.org/2000/svg"
@@ -96,4 +97,4 @@ const CustomDroplist: FC<CustomDropdownList> = ({
 //   );
 // };
 
-export default CustomDroplist;
+export default AutoBuyDropdown;

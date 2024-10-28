@@ -1,32 +1,52 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC, useRef, useEffect } from "react";
 
 interface CustomDropdownProps {
   options: string[];
   value: string;
   onChange: (value: string) => void;
+  add: string;
+  width: Number;
 }
 
 const CustomDropdown: FC<CustomDropdownProps> = ({
   options,
   value,
   onChange,
+  add,
+  width,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const handleOptionClick = (option: string) => {
     onChange(option);
     setIsOpen(false);
   };
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setIsOpen(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <div className="relative w-[180px] mt-[8px]">
+    <div ref={dropdownRef} className={`relative w-[${width}px] mt-[8px]`}>
       <div
-        className="bg-transparent border border-[#7A7A7A] flex h-[40px] items-center p-2 cursor-pointer rounded-[8px] justify-between"
+        className="bg-transparent border border-[#7A7A7A] flex h-[40px] items-center p-2 cursor-pointer rounded-[8px] "
         onClick={(e) => {
           setIsOpen((prev) => !prev);
         }}
       >
-        <span className="text-white w-[85px]">{value} min</span>
+        <span className="text-white w-[85px]">
+          {value} {add}
+        </span>
         <svg
           className="-mr-1 ml-2 h-5 w-5"
           xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +69,7 @@ const CustomDropdown: FC<CustomDropdownProps> = ({
               className="text-white hover:bg-[#2C2C2C] py-1 px-2 cursor-pointer"
               onClick={() => handleOptionClick(option)}
             >
-              {option} min
+              {option} {add}
             </div>
           ))}
         </div>

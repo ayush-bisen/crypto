@@ -10,15 +10,19 @@ export interface ISettingInfo {
   pending_can_mint_audit: number;
   pending_live_mins: number;
   buy_initial_invest_sol: string;
+  buy_pooled_sol_size: string;
   buy_pooled_sol_min: string;
   buy_pooled_sol_max: string;
+  buy_pooled_token: string;
   buy_pooled_token_min: string;
   buy_pooled_token_max: string;
+  buy_24h_change: string;
   buy_24h_change_min: string;
   buy_24h_change_max: string;
   buy_lp_burned_audit: number;
   buy_top_10_audit: number;
-  buy_whale_check_percent: number;
+  // changed to string just for removing error, getting error in TabAutoBuy file
+  buy_whale_check_percent: string;
   priority_fee: string;
   bibrary_fee: string;
   slippage: string;
@@ -46,15 +50,19 @@ export const defaultSettingInfo: ISettingInfo = {
   pending_can_mint_audit: 1,
   pending_live_mins: 60,
   buy_initial_invest_sol: "0.1",
+  buy_pooled_sol_size: "1-1000",
   buy_pooled_sol_min: "1",
   buy_pooled_sol_max: "1000",
+  buy_pooled_token: "5%-100%",
   buy_pooled_token_min: "1",
   buy_pooled_token_max: "1000",
+  buy_24h_change: "100%-10,000%",
   buy_24h_change_min: "1",
   buy_24h_change_max: "10000",
   buy_lp_burned_audit: 0,
   buy_top_10_audit: 0,
-  buy_whale_check_percent: 0,
+  // changed to string just for removing error
+  buy_whale_check_percent: "0",
   priority_fee: "0.01",
   bibrary_fee: "0.01",
   slippage: "10",

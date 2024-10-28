@@ -15,7 +15,9 @@ import Link from "next/link";
 import { getDiffTimeInFormat } from "@/utils/time";
 import { coloriseValue } from "@/utils/number";
 import { Button } from "@nextui-org/react";
+
 import Image from "next/image";
+
 import IMG_SETTING from "@/assets/images/setting.svg";
 import IMG_SOL from "@/assets/images/sol.png";
 import IMG_CHECK from "@/assets/images/check.png";
@@ -32,8 +34,6 @@ import CustomDroplist from "@/components/CustomDropList";
 import { defaultSettingInfo } from "@/types/setting";
 import { useUpdateSetting } from "@/components/settings/UpdateSettingProvider";
 import AutoBuyDropdown from "@/components/AutoBuyDropdown";
-import { dummyPools, Pool } from "@/pages/trades/dummydataforpending";
-import QuickBuyAmountDropDown from "@/components/QuickBuyAmountDropDwon";
 
 const PendingPools = () => {
   const router = useRouter();
@@ -43,11 +43,13 @@ const PendingPools = () => {
   const [selectedPoolID, setSelectedPoolID] = useState(0);
   const [confirmBuy, setConfirmBuy] = useState(false);
   const [selectedBuyPoolID, setSelectedBuyPoolID] = useState(0);
-  const [quick_buy_amount, setQuickBuyAmount] = useState("0.1");
+  const [quick_buy_amount, setQuickBuyAmount] = useState(0.1);
   const [settingInfo, setSettingInfo]: any = useState(defaultSettingInfo);
   const [settingBackupInfo, setSettingBackupInfo]: any =
     useState(defaultSettingInfo);
+
   const [checkedLogin, setCheckedLogin] = useState(false);
+
   const wallet = useWallet();
   //TESTING
   const defaultPublicKey = "DefaultMockPublicKey123";
@@ -61,7 +63,113 @@ const PendingPools = () => {
   if (typeof window !== "undefined") {
     token = localStorage.getItem("accessToken");
   }
+  // dummy data
+  interface Pool {
+    id: number;
+    pending_pool: {
+      pool_name: string;
+      pool_url: string;
+      pool_open_time: string;
+      price_24h: number;
+      lp_burned_percent: number;
+      pooled_sol: number;
+      pooled_token_percent: number;
+      token_logo_url: string;
+      can_freeze: boolean;
+      can_mint: boolean;
+      top_10_percent: number;
+    };
+    status: number;
+  }
 
+  const dummyPools: Pool[] = [
+    {
+      id: 1,
+      pending_pool: {
+        pool_name: "SOL/USDC",
+        pool_url: "/sol-usdc-pool",
+        pool_open_time: "2024-09-25T10:00:00Z",
+        price_24h: -2.45,
+        lp_burned_percent: 96,
+        pooled_sol: 120.4532,
+        pooled_token_percent: 4,
+        token_logo_url: "/path/to/token_logo.png",
+        can_freeze: true,
+        can_mint: false,
+        top_10_percent: 8,
+      },
+      status: 0, // Waiting
+    },
+    {
+      id: 2,
+      pending_pool: {
+        pool_name: "BTC/SOL",
+        pool_url: "/btc-sol-pool",
+        pool_open_time: "2024-09-24T15:00:00Z",
+        price_24h: 1.23,
+        lp_burned_percent: 50,
+        pooled_sol: 250.654,
+        pooled_token_percent: 80.12,
+        token_logo_url: "/path/to/btc_logo.png",
+        can_freeze: false,
+        can_mint: true,
+        top_10_percent: 12,
+      },
+      status: 1, // Buying
+    },
+    {
+      id: 3,
+      pending_pool: {
+        pool_name: "SOL/USDC",
+        pool_url: "/sol-usdc-pool",
+        pool_open_time: "2024-09-25T10:00:00Z",
+        price_24h: -2.45,
+        lp_burned_percent: 96,
+        pooled_sol: 120.4532,
+        pooled_token_percent: 65.32,
+        token_logo_url: "/path/to/token_logo.png",
+        can_freeze: true,
+        can_mint: false,
+        top_10_percent: 8,
+      },
+      status: 0, // Waiting
+    },
+    {
+      id: 4,
+      pending_pool: {
+        pool_name: "SOL/USDC",
+        pool_url: "/sol-usdc-pool",
+        pool_open_time: "2024-09-25T10:00:00Z",
+        price_24h: -2.45,
+        lp_burned_percent: 96,
+        pooled_sol: 120.4532,
+        pooled_token_percent: 100,
+        token_logo_url: "/path/to/token_logo.png",
+        can_freeze: true,
+        can_mint: false,
+        top_10_percent: 8,
+      },
+      status: 0, // Waiting
+    },
+    {
+      id: 5,
+      pending_pool: {
+        pool_name: "SOL/USDC",
+        pool_url: "/sol-usdc-pool",
+        pool_open_time: "2024-09-25T10:00:00Z",
+        price_24h: -2.45,
+        lp_burned_percent: 96,
+        pooled_sol: 120.4532,
+        pooled_token_percent: 65,
+        token_logo_url: "/path/to/token_logo.png",
+        can_freeze: true,
+        can_mint: false,
+        top_10_percent: 8,
+      },
+      status: 0, // Waiting
+    },
+    // Add more dummy data as needed
+  ];
   useEffect(() => {
     setPendingPools(dummyPools);
   }, []);
@@ -110,19 +218,24 @@ const PendingPools = () => {
       apiRoutes.pending_pools.list,
       publicKey
     );
+
     // if (response.bbt_key_not_exist || response.is_wallet_not_copied) {
     //   await router.push('/wallet');
     // }
+
     if (response === 401) {
       // await router.push('');
       return;
     }
+
     if (response.pending_pools) {
       setPendingPools(response.pending_pools);
     }
+
     if (response.setting) {
       setSetting(response.setting);
     }
+
     setBBTPublicKey(response.bbt_public_key);
   };
 
@@ -569,16 +682,13 @@ const PendingPools = () => {
     setIsModalOpen(!isModalOpen);
   };
   const [showPopup, setShowPopup] = useState(false);
-  const togglePopUp = () => {
-    setShowPopup(!showPopup);
-  };
+
   // Filter code start from here
 
   return (
     <>
       {publicKey ? (
         <div className="z-[1] h-full flex flex-col">
-          {/* div for the confirm Dialog  */}
           <div>
             <ConfirmDialog
               title="Cancel Trade"
@@ -589,7 +699,7 @@ const PendingPools = () => {
               Are you sure you want to cancel this pool?
             </ConfirmDialog>
           </div>
-          {/* div for the confirm Dialog  */}
+
           <div>
             <ConfirmDialog
               title="Buy Trade"
@@ -689,25 +799,23 @@ const PendingPools = () => {
               <div>
                 <div className="flex items-center gap-2">
                   {/* <div className="relative">
-                    <div
-                      className="border rounded-[48px] flex justify-between gap-2 items-center px-3 py-1.5 cursor-pointer mr-6"
-                      // onClick={handleButtonClick}
-                    >
-                      <Image
-                        src={IMG_FILTER}
-                        alt="Filter"
-                        className="w-[16px] h-[16px]"
-                      />
-                      <span className="text-white font-bold text-[13px]">
-                        Filter
-                      </span>
-                      <Image
-                        src={IMG_DROPDOWN}
-                        alt="Dropdown"
-                        className="mt-1 w-[10px] h-[10px]"
-                      />
-                    </div>
-                  </div> */}
+                  <div
+                    className="border rounded-[48px] flex justify-between gap-2 items-center px-3 py-1.5 cursor-pointer mr-6"
+                  // onClick={handleButtonClick}
+                  >
+                    <Image
+                      src={IMG_FILTER}
+                      alt="Filter"
+                      className="w-[16px] h-[16px]"
+                    />
+                    <span className="text-white font-bold text-[13px]">Filter</span>
+                    <Image
+                      src={IMG_DROPDOWN}
+                      alt="Dropdown"
+                      className="mt-1 w-[10px] h-[10px]"
+                    />
+                  </div>
+                </div> */}
 
                   <div className="flex items-center">
                     <div className="text-white text-[14px] text-bold mr-2">
@@ -740,10 +848,10 @@ const PendingPools = () => {
                         />
                       </div>
                     </div> */}
-                    <QuickBuyAmountDropDown
+                    <AutoBuyDropdown
                       options={["0.1", "0.2", "0.3"]}
-                      value={quick_buy_amount}
-                      onChange={setQuickBuyAmount}
+                      value={setting?.buy_initial_invest_sol || "0.1"}
+                      onChange={handleChange}
                     />
                   </div>
                   <div
@@ -830,10 +938,10 @@ const PendingPools = () => {
                         />
                       </div>
                     </div> */}
-                        <QuickBuyAmountDropDown
+                        <AutoBuyDropdown
                           options={["0.1", "0.2", "0.3"]}
-                          value={quick_buy_amount}
-                          onChange={setQuickBuyAmount}
+                          value={setting?.buy_initial_invest_sol || "0.1"}
+                          onChange={handleChange}
                         />
                       </div>
                       <div
@@ -842,7 +950,6 @@ const PendingPools = () => {
                           background:
                             "linear-gradient(92.1deg, #7C03A7 -2.85%, #18C5D0 97.86%)",
                         }}
-                        onClick={togglePopUp}
                       >
                         <span className="text-white text-[14px] font-bold">
                           Buy Custome token +
@@ -926,7 +1033,7 @@ const PendingPools = () => {
                   backgroundBlendMode: "lighten",
                   backdropFilter: "blur(10px)",
                 }}
-                className="text-white items-center rounded-[16px] sm:rounded-[30] p-6 sm:p-8 w-full max-w-[600px] sm:max-w-[90%] md:max-w-[600px] h-auto text-center"
+                className="text-white items-center rounded-[16px] sm:rounded-[30] p-6 sm:p-8 w-full max-w-[600px] sm:max-w-[90%] md:max-w-[600px] h-auto text-center  "
               >
                 {/* div for the filetrs section  */}
                 <div className="flex flex-col gap-5">
@@ -1023,51 +1130,196 @@ const PendingPools = () => {
                 </div>
               </div>
             </div>
-          )}
-          {showPopup && (
-            <div
-              className="fixed inset-0 z-50 flex items-center justify-center"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(202, 243, 255, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%)",
-                backgroundBlendMode: "lighten",
-                backdropFilter: "blur(10px)",
-              }}
-            >
-              <div
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(202, 243, 255, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%)",
-                  backgroundBlendMode: "lighten",
-                  backdropFilter: "blur(10px)",
-                }}
-                className="relative text-white items-center rounded-[16px] sm:rounded-[30] p-6 sm:p-8 w-full max-w-[600px] sm:max-w-[90%] md:max-w-[600px] h-auto text-center"
-              >
-                {/* close button  */}
-                <button
-                  onClick={() => setShowPopup(false)}
-                  className="text-white absolute left-[95%] top-[10px]"
-                >
-                  X
-                </button>
+            //         <div className="fixed inset-0 flex items-center justify-center z-50">
+            //           <div
+            //             className="bg-black opacity-50 fixed inset-0"
+            //             onClick={toggleModal}
+            //           ></div>
+            //           <div className="bg-gray-800 rounded-lg p-4 z-10">
+            //             <div className="w-[300px] items-center gap-1">
+            //               <div className="flex flex-row justify-between  items-center my-2">
+            //                 <div className="text-white text-[12px] font-bold ">
+            //                   Pool Size (SOL):
+            //                 </div>
+            //                 <div className="w-[90px] px-1">
+            //                   <select className="text-white w-[80px] text-[14px] bg-transparent border-gray-400 border-1 rounded-xl p-1">
+            //                     <option value="1-1000" className="bg-black text-white">
+            //                       1-1,000
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       10-1000
+            //                     </option>
+            //                     <option value="1-1000" className="bg-black text-white">
+            //                       50-1,000
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       100-1,000
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       1000+
+            //                     </option>
+            //                   </select>
+            //                 </div>
+            //               </div>
+            //               <div className="flex flex-row justify-between items-center mt-2 sm:mt-0 my-2">
+            //                 <div className="text-white text-[12px] font-bold">
+            //                   Pool Size (Token):
+            //                 </div>
+            //                 <div className="w-[90px] px-1">
+            //                   <select className="text-white w-[80px] text-[14px] bg-transparent border-gray-400 border-1 rounded-xl p-1">
+            //                     <option value="<5%" className="bg-black text-white">
+            //                       &lt;5%
+            //                     </option>
 
-                <div className="flex flex-col justify-center items-center gap-4">
-                  <p className="text-[18px] text-bold">
-                    Insert Smart Contract Address
-                  </p>
-                  <div className="w-full px-1">
-                    <input
-                      type="text"
-                      className=" text-white text-[14px] bg-[#0F0F0F] border  border-[#7A7A7A] p-3 w-full  rounded-[8px]"
-                      value="Insert address here"
-                    />
-                  </div>
-                  <button className=" bg-[#2B2B2B] rounded-[12px] py-[6px] mt-4 px-[24px] text-[#FFFFFF] mr-2 hover:bg-gradient-to-r hover:from-[#7C03A7] hover:to-[#18C5D0]">
-                    Quick Buy
-                  </button>
-                </div>
-              </div>
-            </div>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       5%-10%
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       10%-100%
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       25%-100%
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       50%-100%
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       75%-100%
+            //                     </option>
+            //                   </select>
+            //                 </div>
+            //               </div>
+            //               <div className="flex flex-row justify-between items-center mt-2 sm:mt-0 my-2">
+            //                 <div className="text-white text-[12px] font-bold">
+            //                   24H Change:
+            //                 </div>
+            //                 <div className="w-[90px] px-1">
+            //                   <select className="text-white w-[80px] text-[14px] bg-transparent border-gray-400 border-1 rounded-xl p-1">
+            //                     <option value="<5%" className="bg-black text-white">
+            //                       &lt;100%
+            //                     </option>
+
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       100%-10000%
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       500%-10000%
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       1000%-10000%
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       5000%-10000%
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       10000% +
+            //                     </option>
+            //                   </select>
+            //                 </div>
+            //               </div>
+            //               <div className="flex flex-row justify-between items-center mt-2 sm:mt-0 my-2">
+            //                 <div className="text-white text-[12px] font-bold">
+            //                   Pool Size (SOL):
+            //                 </div>
+            //                 <div className="w-[90px] px-1">
+            //                   <select className="text-white w-[80px] text-[14px] bg-transparent border-gray-400 border-1 rounded-xl p-1">
+            //                     <option value="1-1000" className="bg-black text-white">
+            //                       5 min
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       10 min
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       30 min
+            //                     </option>
+            //                     <option
+            //                       value="1000-2000"
+            //                       className="bg-black text-white"
+            //                     >
+            //                       1 hr
+            //                     </option>
+            //                   </select>
+            //                 </div>
+            //               </div>
+            //               <div className="flex flex-row justify-between items-center text-center my-2">
+            //                 <span className="text-[12px] font-medium text-white dark:text-gray-300">
+            //                   Scam Audits
+            //                 </span>
+            //                 <input type="checkbox" className="sr-only peer ml-2" />
+            //                 <div
+            //                   className="relative w-9 h-3 bg-gray-200 rounded-[14px] peer dark:bg-gray-700  ml-1
+            // peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-['']
+            // after:absolute after:-top-0.5 after:start-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all
+            // peer-checked:bg-[#28DEAF]"
+            //                 ></div>
+            //               </div>
+            //             </div>
+            //             {/* Your filter options go here */}
+            //             <div className="flex flex-row justify-between">
+            //               <button
+            //                 onClick={toggleModal}
+            //                 className="mt-4 px-4 py-2 bg-transparent text-white rounded-xl border-1 border-white"
+            //               >
+            //                 Clear filter
+            //               </button>
+            //               <button
+            //                 onClick={toggleModal}
+            //                 style={{
+            //                   background:
+            //                     "linear-gradient(92.1deg, #7C03A7 -2.85%, #18C5D0 97.86%)",
+            //                 }}
+            //                 className="mt-4 px-5 py-2 text-white rounded-xl"
+            //               >
+            //                 Apply filter
+            //               </button>
+            //             </div>
+            //           </div>
+            //         </div>
           )}
         </div>
       ) : //<ConnectComponent />

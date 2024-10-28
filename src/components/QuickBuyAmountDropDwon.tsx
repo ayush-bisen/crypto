@@ -1,22 +1,24 @@
 import React, { useState, FC, useRef, useEffect } from "react";
+import IMG_SOL from "@/assets/images/sol.png";
+import Image from "next/image";
 
-interface CustomDropdownList {
+interface QuickBuyAmountDropDown {
   options: string[];
   value: string;
   onChange: (value: string) => void;
 }
 
-const CustomDroplist: FC<CustomDropdownList> = ({
+const QuickBuyAmountDropDown: FC<QuickBuyAmountDropDown> = ({
   options,
   value,
   onChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const handleOptionClick = (option: string) => {
-    onChange(option);
-    setIsOpen(false);
-  };
+  // const handleOptionClick = (option: string) => {
+  //   onChange(option);
+  //   setIsOpen(false);
+  // };
   const handleClickOutside = (event: MouseEvent) => {
     if (
       dropdownRef.current &&
@@ -33,19 +35,18 @@ const CustomDroplist: FC<CustomDropdownList> = ({
   }, []);
 
   return (
-    <div ref={dropdownRef} className="relative w-[140px] ">
-      {/* mt-[8px] */}
+    <div ref={dropdownRef} className="relative  ">
       <div
-        className="bg-[#0F0F0F] border  border-[#7A7A7A] gap-1 flex w-full h-[30px] rounded-[20px] items-center  text-[14px] px-4 py-1"
-        // bg-transparent border border-[#7A7A7A] flex h-[40px] items-center p-2 cursor-pointer rounded-[8px] justify-between mt-[8px]
+        className="bg-[#0F0F0F] border border-[#7A7A7A] gap-2 flex w-full h-[30px] rounded-[20px] items-center justify-center text-[14px] px-4 py-1"
         onClick={(e) => {
           e.stopPropagation;
           setIsOpen((prev) => !prev);
         }}
       >
-        <span className="text-white w-[85px]">{value}</span>
+        <span className="text-white">{value}</span>
+        <Image src={IMG_SOL} width={15} height={15} alt="image" />
         <svg
-          className="-mr-1 ml-2 h-5 w-5"
+          className="-ml-1 h-5 w-5"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="white"
@@ -65,8 +66,8 @@ const CustomDroplist: FC<CustomDropdownList> = ({
               key={option}
               className="text-white hover:bg-[#2C2C2C] py-1 px-2 cursor-pointer"
               onClick={(e) => {
-                e.stopPropagation;
-                handleOptionClick(option);
+                onChange(option);
+                setIsOpen(false);
               }}
             >
               {option}
@@ -78,22 +79,4 @@ const CustomDroplist: FC<CustomDropdownList> = ({
   );
 };
 
-// Usage Example
-// const MyComponent: FC = () => {
-//   const [selectedValue, setSelectedValue] = useState("0.1");
-
-//   const handleChange = (value: string) => {
-//     setSelectedValue(value);
-//     // You can also handle setting the value in your settings here
-//   };
-
-//   return (
-//     <CustomDropdown
-//       options={["0.1", "0.5", "1", "2", "5"]}
-//       value={selectedValue}
-//       onChange={handleChange}
-//     />
-//   );
-// };
-
-export default CustomDroplist;
+export default QuickBuyAmountDropDown;

@@ -3,7 +3,7 @@ import FeesText from "@/components/settings/description/FeesText";
 import GeneralText from "@/components/settings/description/GeneralText";
 import PendingPoolText from "@/components/settings/description/PendingPoolText";
 import TpSlText from "@/components/settings/description/TpSlText";
-import InfoSquared from '../../assets/images/InfoSquared.svg'
+import InfoSquared from "../../assets/images/InfoSquared.svg";
 import TabAutoBuy from "@/components/settings/tabs/TabAutoBuy";
 import TabFees from "@/components/settings/tabs/TabFees";
 import TabGeneral from "@/components/settings/tabs/TabGeneral";
@@ -26,10 +26,11 @@ import { toast } from "react-toastify";
 const Settings = () => {
   const router = useRouter();
 
-  const [dynamicCategory, setDynamicCategory] = useState('fees');
+  const [dynamicCategory, setDynamicCategory] = useState("fees");
   const [settingInfo, setSettingInfo]: any = useState(defaultSettingInfo);
   const [bbt_public_key, setBBTPublicKey]: any = useState("");
-  const [settingBackupInfo, setSettingBackupInfo]: any = useState(defaultSettingInfo);
+  const [settingBackupInfo, setSettingBackupInfo]: any =
+    useState(defaultSettingInfo);
   // const [loadedSetting, setLoadedSetting] = useState(false);
   const [profileImageData, setProfileIamgeData] = useState();
   const { triggerUpdateSetting } = useUpdateSetting();
@@ -40,18 +41,18 @@ const Settings = () => {
   const publicKeyRef = useRef(publicKey);
   const [copied, setCopied] = useState(false);
 
-  let token: any = '';
+  let token: any = "";
   if (typeof window !== "undefined") {
-    token = localStorage.getItem('accessToken');
+    token = localStorage.getItem("accessToken");
   }
 
   const onCopyButton = async () => {
     try {
-      await navigator.clipboard.writeText(publicKey ?? '');
+      await navigator.clipboard.writeText(publicKey ?? "");
       setCopied(true);
       setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
     } catch (err) {
-      console.error('Failed to copy text: ', err);
+      console.error("Failed to copy text: ", err);
     }
 
     toast.success(
@@ -76,11 +77,11 @@ const Settings = () => {
 
   const onCopyBBTButton = async () => {
     try {
-      await navigator.clipboard.writeText(bbt_public_key ?? '');
+      await navigator.clipboard.writeText(bbt_public_key ?? "");
       setCopied(true);
       setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
     } catch (err) {
-      console.error('Failed to copy text: ', err);
+      console.error("Failed to copy text: ", err);
     }
 
     toast.success(
@@ -104,10 +105,7 @@ const Settings = () => {
   };
 
   const loadSetting = async () => {
-    const response = await apiService.get(
-      apiRoutes.settings.list,
-      publicKey
-    );
+    const response = await apiService.get(apiRoutes.settings.list, publicKey);
 
     // if (response.bbt_key_not_exist || response.is_wallet_not_copied) {
     //   await router.push('/wallet');
@@ -132,22 +130,18 @@ const Settings = () => {
 
   const onChangeSettingValue = (e: any, key: string, changedValue = null) => {
     let value = changedValue ? changedValue : e.target.value;
-    if (value === 'on'
-      || key === 'is_bot_on'
-    ) {
+    if (value === "on" || key === "is_bot_on") {
       value = settingInfo[key] === 1 ? 0 : 1;
     }
 
-    if (value === '') {
+    if (value === "") {
       value = 0;
     }
 
     const newSettingInfo: any = { ...settingInfo };
     newSettingInfo[key] = value;
     setSettingInfo(newSettingInfo);
-  }
-
-
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -177,7 +171,7 @@ const Settings = () => {
   const onCancelSetting = () => {
     const newSettingInfo: any = { ...settingBackupInfo };
     setSettingInfo(newSettingInfo);
-  }
+  };
 
   const onUpdateSetting = () => {
     const settingFormData = new FormData();
@@ -188,18 +182,47 @@ const Settings = () => {
     }
 
     if (profileImageData) {
-      settingFormData.append('profile_image_data', profileImageData);
+      settingFormData.append("profile_image_data", profileImageData);
     }
 
-    apiService.putFormData(
-      apiRoutes.settings.update_setting,
-      settingFormData,
-      publicKey
-    ).then((response) => {
-      if (response.message) {
-        toast.error(
+    apiService
+      .putFormData(
+        apiRoutes.settings.update_setting,
+        settingFormData,
+        publicKey
+      )
+      .then((response) => {
+        if (response.message) {
+          toast.error(
+            <div className="text-[14px] font-bold text-white">
+              {response.message}
+            </div>,
+            {
+              position: "top-right",
+              // padding: "0px",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              style: {
+                backgroundColor: "#1a202c",
+                top: "70px",
+              },
+            }
+          );
+          return;
+        }
+
+        setSettingInfo(response.setting);
+        setBBTPublicKey(response.bbt_public_key);
+        setSettingBackupInfo(response.setting);
+        triggerUpdateSetting();
+
+        toast.success(
           <div className="text-[14px] font-bold text-white">
-            {response.message}
+            Setting is updated successfully
           </div>,
           {
             position: "top-right",
@@ -216,147 +239,192 @@ const Settings = () => {
             },
           }
         );
-        return;
-      }
-
-      setSettingInfo(response.setting);
-      setBBTPublicKey(response.bbt_public_key);
-      setSettingBackupInfo(response.setting);
-      triggerUpdateSetting();
-
-      toast.success(
-        <div className="text-[14px] font-bold text-white">
-          Setting is updated successfully
-        </div>,
-        {
-          position: "top-right",
-          // padding: "0px",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          style: {
-            backgroundColor: "#1a202c",
-            top: "70px",
-          },
-        }
-      );
-    })
-  }
+      });
+  };
 
   return (
     <>
-      {publicKey ?
-        <>
-          <div className="max-w-[620px] w-full bg-gray-900 rounded-lg p-4 mx-auto mt-10">
-            <div className="text-lg font-bold text-white uppercase">General Settings</div>
-            <div className="flex flex-col lg:flex-row items-center gap-5 mt-3 justify-between">
-              <div className="text-base font-bold text-gray-500 w-full lg:w-[150px]">
-                Trading wallet
-              </div>
-              <div className="bg-[#23242D] rounded-full p-2 flex items-center justify-between w-full lg:w-1/2 px-4">
-                <span className="p-1 text-white">{bbt_public_key}</span>
-                <Copy size={24} color="white" className="cursor-pointer" onClick={onCopyBBTButton} />
-              </div>
+      {/* {publicKey ? ( */}
+      <>
+        <div className="max-w-[620px] w-full bg-[#141414] rounded-[16px] p-4 mx-auto mt-10">
+          <div className="text-lg font-bold text-white uppercase">
+            General Settings
+          </div>
+          <div className="flex flex-col lg:flex-row items-center gap-5 mt-3 justify-between">
+            <div className="text-base font-bold text-gray-500 w-full lg:w-[150px]">
+              Trading wallet
+            </div>
+            <div className="bg-[#23242D] rounded-full p-2 flex items-center justify-between w-full lg:w-1/2 px-4">
+              <span className="p-1 text-white">{bbt_public_key}</span>
+              <Copy
+                size={24}
+                color="white"
+                className="cursor-pointer"
+                onClick={onCopyBBTButton}
+              />
             </div>
           </div>
+        </div>
 
-          <div className="flex flex-col md:flex-row justify-between relative">
+        <div className="flex flex-col md:flex-row justify-between relative">
+          <div className="max-w-[620px] relative w-full rounded-[16px] mx-auto mt-1 flex flex-col gap-1">
+            {/* Dynamic Navbar */}
+            <div className="flex flex-row items-center bg-[#141414] justify-center gap-4 w-full py-1 rounded-[16px]">
+              {["fees", "withdraw", "general"].map((category) => (
+                <div
+                  key={category}
+                  className={`w-full lg:w-[31%] flex justify-center items-center gap-1 cursor-pointer w-full rounded-[16px] ${
+                    dynamicCategory === category
+                      ? "bg-[#23242D] text-white"
+                      : "text-[#858686]"
+                  }`}
+                  onClick={() => setDynamicCategory(category)}
+                >
+                  <p className="text-center py-3 text-[14px] w-full font-bold">
+                    {category.charAt(0).toUpperCase() + category.slice(1)}
+                  </p>
+                </div>
+              ))}
+            </div>
+
             {/* Dynamic Content Section */}
             {dynamicCategory === "fees" && (
-              <div className="w-full bg-black p-4 md:p-4 rounded-lg flex flex-col gap-5 mb-4 md:hidden">
+              <div className="w-full bg-[#141414] p-4 md:p-4 rounded-[16px] flex flex-col gap-5 xl:hidden">
                 <div className="flex flex-row justify-between text-center">
-                <Image src={InfoSquared} width={"20"} height="20" alt="ddd"/>
-                  <span className="text-[18px] font-bold text-white text-start md:text-left">What are Fees?</span>
-                  <p className="text-blue-400">hide</p>
+                  <div className="flex gap-2">
+                    <Image
+                      src={InfoSquared}
+                      width={"20"}
+                      height="20"
+                      alt="ddd"
+                    />
+                    <span className="text-[18px] font-bold text-white text-start md:text-left">
+                      What are Fees?
+                    </span>
+                  </div>
+                  <p className="text-blue-400 text-[12px]">Hide</p>
                 </div>
                 <p className="text-[#858686] text-[14px] md:text-[16px] font-medium leading-6 md:leading-8">
-                  TP/SL, which stands for Take Profit and Stop Loss, enables you to establish predefined thresholds for realizing profits or limiting losses on your open positions.
+                  TP/SL, which stands for Take Profit and Stop Loss, enables you
+                  to establish predefined thresholds for realizing profits or
+                  limiting losses on your open positions.
                 </p>
               </div>
             )}
             {dynamicCategory === "withdraw" && (
-              <div className="w-full bg-black p-4 md:p-4 rounded-lg flex flex-col gap-5 mb-4 md:hidden">
+              <div className="w-full bg-[#141414] p-4 md:p-4 rounded-[16px] flex flex-col gap-5 xl:hidden">
                 <div className="flex flex-row justify-between text-center">
-                <Image src={InfoSquared} width={"20"} height="20" alt="ddd"/>
-                  <span className="text-[18px] font-bold text-white text-start md:text-left">General Setting</span>
-                  <p className="text-blue-400">hide</p>
+                  <div className="flex gap-2">
+                    <Image
+                      src={InfoSquared}
+                      width={"20"}
+                      height="20"
+                      alt="ddd"
+                    />
+                    <span className="text-[18px] font-bold text-white text-start md:text-left">
+                      General Setting
+                    </span>
+                  </div>
+                  <p className="text-blue-400 text-[12px]">Hide</p>
                 </div>
                 <p className="text-[#858686] text-[14px] md:text-[16px] font-medium leading-6 md:leading-8">
-                  In the General Settings section, you have the ability to personalize your profile picture, define the operating hours of the application, and manage the primary on/off switch for the Bot.
+                  In the General Settings section, you have the ability to
+                  personalize your profile picture, define the operating hours
+                  of the application, and manage the primary on/off switch for
+                  the Bot.
                 </p>
               </div>
             )}
             {dynamicCategory === "general" && (
-              <div className="w-full bg-black p-4 md:p-4 rounded-lg flex flex-col gap-5 mb-4 md:hidden">
+              <div className="w-full bg-[#141414] p-4 md:p-4 rounded-[16px] flex flex-col gap-5 xl:hidden">
                 <div className="flex flex-row justify-between text-center">
-                <Image src={InfoSquared} width={"20"} height="20" alt="ddd"/>
-                  <span className="text-[18px] font-bold text-white text-start md:text-left">General Setting</span>
-                  <p className="text-blue-400">hide</p>
+                  <div className="flex gap-2">
+                    {" "}
+                    <Image
+                      src={InfoSquared}
+                      width={"20"}
+                      height="20"
+                      alt="ddd"
+                    />
+                    <span className="text-[18px] font-bold text-white text-start md:text-left">
+                      General Setting
+                    </span>
+                  </div>
+                  <p className="text-blue-400 text-[12px]">Hide</p>
                 </div>
                 <p className="text-[#858686] text-[14px] md:text-[16px] font-medium leading-6 md:leading-8">
-                  In the General Settings section, you have the ability to personalize your profile picture, define the operating hours of the application, and manage the primary on/off switch for the Bot.
+                  In the General Settings section, you have the ability to
+                  personalize your profile picture, define the operating hours
+                  of the application, and manage the primary on/off switch for
+                  the Bot.
                 </p>
               </div>
             )}
 
-            <div className="max-w-[620px] relative w-full rounded-lg mx-auto mt-1">
-              {/* Dynamic Navbar */}
-              <div className="flex flex-row flex-wrap items-center   bg-gray-900 justify-center gap-4 w-full py-1">
-                {['fees', 'withdraw', 'general'].map(category => (
-                  <div
-                    key={category}
-                    className={`w-full lg:w-[31%] flex justify-center items-center gap-1 cursor-pointer w-full rounded-md ${dynamicCategory === category ? "bg-[#23242D] text-white" : "text-[#858686]"}`}
-                    onClick={() => setDynamicCategory(category)}
-                  >
-                    <p className="text-center py-3 text-[14px] w-full font-bold">{category.charAt(0).toUpperCase() + category.slice(1)}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Sidebar for Information */}
-              <div className="max-w-[300px] w-full absolute right-[-302px] top-[0px] hidden md:block ">
-                {dynamicCategory === "fees" && (
-                  <div className="bg-[#2593F90D] p-4 rounded-lg flex flex-col gap-5">
-                      <Image src={InfoSquared} width={"20"} height="20" alt="ddd"/>
-                    <span className="text-[18px] font-bold text-white text-start md:text-left">What are Fees?</span>
-                    <p className="text-[#858686] text-[14px] md:text-[16px] font-medium leading-6 md:leading-8">
-                      This section allows you to configure fee limits that will be applied to every transaction executed by the bot, ensuring optimal cost management.
-                    </p>
-                  </div>
-                )}
-                {dynamicCategory === "withdraw" && (
-                  <div className="bg-[#2593F90D] p-4 rounded-lg flex flex-col gap-5">
-                       <Image src={InfoSquared} width={"20"} height="20" alt="ddd"/>
-                    <span className="text-[18px] font-bold text-white text-start md:text-left">General Setting</span>
-                    <p className="text-[#858686] text-[14px] md:text-[16px] font-medium leading-6 md:leading-8">
-                      In the General Settings section, you have the ability to personalize your profile picture, define the operating hours of the application, and manage the primary on/off switch for the Bot.
-                    </p>
-                  </div>
-                )}
-                {dynamicCategory === "general" && (
-                  <div className="bg-[#2593F90D] p-4 rounded-lg flex flex-col gap-5">
-                        <Image src={InfoSquared} width={"20"} height="20" alt="ddd"/>
-                    <span className="text-[18px] font-bold text-white text-start md:text-left">General Setting</span>
-                    <p className="text-[#858686] text-[14px] md:text-[16px] font-medium leading-6 md:leading-8">
-                      In the General Settings section, you have the ability to personalize your profile picture, define the operating hours of the application, and manage the primary on/off switch for the Bot.
-                    </p>
-                  </div>
-                )}
-              </div>
-
-              {/* Render Dynamic Tabs */}
-              <div className=" bg-gray-900 ">
+            {/* Sidebar for Information */}
+            <div className="max-w-[300px] w-full absolute right-[-302px] top-[0px] hidden xl:block ">
               {dynamicCategory === "fees" && (
-                <TabFees setting={settingInfo} onChangeSettingValue={onChangeSettingValue} />
+                <div className="bg-[#2593F90D] p-4 rounded-lg flex flex-col gap-5">
+                  <Image src={InfoSquared} width={"20"} height="20" alt="ddd" />
+                  <span className="text-[18px] font-bold text-white text-start md:text-left">
+                    What are Fees?
+                  </span>
+                  <p className="text-[#858686] text-[14px] md:text-[16px] font-medium leading-6 md:leading-8">
+                    This section allows you to configure fee limits that will be
+                    applied to every transaction executed by the bot, ensuring
+                    optimal cost management. SIDEBAR
+                  </p>
+                </div>
               )}
               {dynamicCategory === "withdraw" && (
-                <TabWallet setting={settingInfo} onChangeSettingValue={onChangeSettingValue} />
+                <div className="bg-[#2593F90D] p-4 rounded-lg flex flex-col gap-5">
+                  <Image src={InfoSquared} width={"20"} height="20" alt="ddd" />
+                  <span className="text-[18px] font-bold text-white text-start md:text-left">
+                    General Setting
+                  </span>
+                  <p className="text-[#858686] text-[14px] md:text-[16px] font-medium leading-6 md:leading-8">
+                    In the General Settings section, you have the ability to
+                    personalize your profile picture, define the operating hours
+                    of the application, and manage the primary on/off switch for
+                    the Bot.
+                  </p>
+                </div>
               )}
               {dynamicCategory === "general" && (
-                <TabGeneral setting={settingInfo} onChangeSettingValue={onChangeSettingValue} />
+                <div className="bg-[#2593F90D] p-4 rounded-lg flex flex-col gap-5">
+                  <Image src={InfoSquared} width={"20"} height="20" alt="ddd" />
+                  <span className="text-[18px] font-bold text-white text-start md:text-left">
+                    General Setting
+                  </span>
+                  <p className="text-[#858686] text-[14px] md:text-[16px] font-medium leading-6 md:leading-8">
+                    In the General Settings section, you have the ability to
+                    personalize your profile picture, define the operating hours
+                    of the application, and manage the primary on/off switch for
+                    the Bot.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Render Dynamic Tabs */}
+            <div className=" bg-[#141414] rounded-[16px] p-4">
+              {dynamicCategory === "fees" && (
+                <TabFees
+                  setting={settingInfo}
+                  onChangeSettingValue={onChangeSettingValue}
+                />
+              )}
+              {dynamicCategory === "withdraw" && (
+                <TabWallet
+                  setting={settingInfo}
+                  onChangeSettingValue={onChangeSettingValue}
+                />
+              )}
+              {dynamicCategory === "general" && (
+                <TabGeneral
+                  setting={settingInfo}
+                  onChangeSettingValue={onChangeSettingValue}
+                />
               )}
 
               <div className="flex flex-row w-full gap-2 mt-4 p-2">
@@ -373,30 +441,23 @@ const Settings = () => {
                   Cancel
                 </button>
               </div>
-              </div>
-
-            </div>
-
-            {/* Sidebar for Information */}
-            <div className="max-w-[300px] w-full absolute right-[105px] hidden md:block">
-
             </div>
           </div>
 
-          <style jsx>{`
-        @media (max-width: 768px) {
-          .max-w-[620px] {
-            max-width: 400px;
+          {/* Sidebar for Information */}
+          <div className="max-w-[300px] w-full absolute right-[105px] hidden md:block"></div>
+        </div>
+
+        <style jsx>{`
+          @media (max-width: 768px) {
+            .max-w-[620px] {
+              max-width: 400px;
+            }
           }
-        }
-      `}</style>
-        </>
-
-
-        :
-        //<ConnectComponent />
-        null
-      }
+        `}</style>
+      </>
+      {/* ) : //<ConnectComponent /> */}
+      {/* null} */}
     </>
   );
 };

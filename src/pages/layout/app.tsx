@@ -38,12 +38,20 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
         <UpdateSettingProvider>
           <div
             className={`${inter.className} h-screen   bg-[#0F0F0F] flex flex-col`}
+            style={{
+              background:
+                "radial-gradient(circle at bottom left, #191A35, #0a0b1e, #01171E, #04031e, #000000)",
+              height: "100vh",
+              margin: 0,
+              // #121212, #0a0b1e, #06061e, #04031e, #000000
+            }}
           >
             <ToastContainer></ToastContainer>
             <Navigation />
 
             <div className="relative custom-scrollbar flex-1 justify-start overflow-auto">
-              {router.pathname === "/settings" ? (
+              {/* commenting out removing the red image from bg  */}
+              {/* {router.pathname === "/settings" ? (
                 <Image
                   src={IMG_BG_SETTING}
                   alt=""
@@ -57,7 +65,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                   alt=""
                   className="w-[520px] max-h-[350px] absolute -left-10 top-12"
                 />
-              ) : null}
+              ) : null} */}
               {children}
             </div>
 

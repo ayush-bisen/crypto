@@ -2,7 +2,7 @@ import { Info, Lock } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 // import MemberShipCard from "./MemberShipCard";
-import IMG_PROFILE from '@/assets/images/user_icon.jpg';
+import IMG_PROFILE from "@/assets/images/user_icon.jpg";
 import InfoCard from "@/components/InfoCard";
 import { SettingProps } from "@/types/setting";
 import apiService from "@/helpers/apiService";
@@ -19,7 +19,7 @@ const TabGeneral = (props: SettingProps) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const wallet = useWallet();
-  const publicKey = wallet.publicKey?.toString()
+  const publicKey = wallet.publicKey?.toString();
 
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen1, setIsOpen1] = useState(false);
@@ -32,20 +32,20 @@ const TabGeneral = (props: SettingProps) => {
   const [profileImageSrc, setProfileImageSrc] = useState("");
 
   const options = Array.from({ length: 24 }, (_, index) => {
-    const value_hour = index.toString().padStart(2, '0');
-    const label_hour = (index % 24).toString().padStart(2, '0');
+    const value_hour = index.toString().padStart(2, "0");
+    const label_hour = (index % 24).toString().padStart(2, "0");
     return {
       value: `${value_hour}:00`,
-      label: `${label_hour}:00`
+      label: `${label_hour}:00`,
     };
   });
 
   const options1 = Array.from({ length: 24 }, (_, index) => {
-    const value_hour = (index + 1).toString().padStart(2, '0');
-    const label_hour = ((index + 1) % 24).toString().padStart(2, '0');
+    const value_hour = (index + 1).toString().padStart(2, "0");
+    const label_hour = ((index + 1) % 24).toString().padStart(2, "0");
     return {
       value: `${value_hour}:00`,
-      label: `${label_hour}:00`
+      label: `${label_hour}:00`,
     };
   });
 
@@ -54,7 +54,7 @@ const TabGeneral = (props: SettingProps) => {
 
   const onClickRemoveImage = async () => {
     setConfirmRemove(true);
-  }
+  };
 
   const removeProfileImage = async () => {
     await apiService.post(
@@ -83,11 +83,11 @@ const TabGeneral = (props: SettingProps) => {
         },
       }
     );
-  }
+  };
 
   const onClickSelectIamge = () => {
     fileInputRef.current!.click();
-  }
+  };
 
   const handleImageChange = (event: any) => {
     const file = event.target.files?.[0];
@@ -98,20 +98,44 @@ const TabGeneral = (props: SettingProps) => {
   };
 
   const handleSelect = (e: any, option: any) => {
-    onChangeSettingValue(e, 'run_started_at', option.value);
+    onChangeSettingValue(e, "run_started_at", option.value);
     setIsOpen(false);
   };
 
   const handleSelect1 = (e: any, option: any) => {
-    onChangeSettingValue(e, 'run_ended_at', option.value);
+    onChangeSettingValue(e, "run_ended_at", option.value);
     setIsOpen1(false);
   };
 
   useEffect(() => {
     const image_src = `/profile_image/${publicKey}?t=${Date.now()}`;
-    setProfileImageSrc(image_src)
+    setProfileImageSrc(image_src);
   }, [updateSetting]);
 
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRef1 = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setIsOpen(false);
+    }
+    if (
+      dropdownRef1.current &&
+      !dropdownRef1.current.contains(event.target as Node)
+    ) {
+      setIsOpen1(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
     <>
       <div className="mt-[3px] py-3 pb-4 px-2">
@@ -125,63 +149,69 @@ const TabGeneral = (props: SettingProps) => {
             Are you sure you want to delete this image?
           </ConfirmDialog>
         </div>
-        <p className="text-[14px] font-bold text-[#FFFFFF]">
-          Profile Settings
-        </p>
+        <p className="text-[14px] font-bold text-[#FFFFFF]">Profile Settings</p>
         <div className="flex items-start gap-3 mt-3">
           <div>
-
-         
-          <input type="file" accept="image/*"
-            ref={fileInputRef}
-            className="hidden" onChange={handleImageChange} />
-          {imagePreview ?
-            <Image src={imagePreview} alt="Image Preview" width={80} height={80}
-              className="rounded-full cursor-pointer"
+            <input
+              type="file"
+              accept="image/*"
+              ref={fileInputRef}
+              className="hidden"
+              onChange={handleImageChange}
             />
-            :
-            profileImageSrc ?
-              <Image src={profileImageSrc} alt="" width={80} height={80}
-                className="rounded-full cursor-pointer"
-              /> :
-              <Image src={IMG_PROFILE} alt="" width={80} height={80}
+            {imagePreview ? (
+              <Image
+                src={imagePreview}
+                alt="Image Preview"
+                width={80}
+                height={80}
                 className="rounded-full cursor-pointer"
               />
-          }
+            ) : profileImageSrc ? (
+              <Image
+                src={profileImageSrc}
+                alt=""
+                width={80}
+                height={80}
+                className="rounded-full cursor-pointer"
+              />
+            ) : (
+              <Image
+                src={IMG_PROFILE}
+                alt=""
+                width={80}
+                height={80}
+                className="rounded-full cursor-pointer"
+              />
+            )}
           </div>
           <div>
-          <div className="w-[335px] mt-[8px]">
-          <div className="flex flex-row gap-4">
-            <button
-              type="button"
-              className=" h-[35px] rounded-[12px] flex justify-center
+            <div className="max-w-[335px] mt-[8px]">
+              <div className="flex flex-row gap-4">
+                <button
+                  type="button"
+                  className=" h-[35px] rounded-[12px] flex justify-center
                 items-center text-[12px] font-bold text-[#FFFFFF] bg-gradient-to-r from-[#28A7CF] to-[#9283EE] px-4"
-              onClick={onClickSelectIamge}
-            >
-              Upload Image
-            </button>
-            <button
-              type="button"
-              className=" h-[35px] text-[12px] font-bold
+                  onClick={onClickSelectIamge}
+                >
+                  Upload Image
+                </button>
+                <button
+                  type="button"
+                  className=" h-[35px] text-[12px] font-bold
                 bg-[#202020] text-[#FFFFFF] rounded-[12px] border-white border-1 px-4"
-              onClick={onClickRemoveImage}
-            >
-              Remove
-            </button>
+                  onClick={onClickRemoveImage}
+                >
+                  Remove
+                </button>
+              </div>
             </div>
-
+            <p className="text-[10px] font-normal text-[#7A7A7A] max-w-[200px] leading-[14px] mt-2">
+              Max file size 5MB. This is the image that would show on your
+              collection profile page. Profile picture size (500x500px)
+            </p>
           </div>
-          <p className="text-[10px] font-normal text-[#7A7A7A] xs:w-[200px] leading-[14px] mt-2">
-            Max file size 5MB. This is the image that would show on your
-            collection profile page. Profile picture size (500x500px)
-          </p>
         </div>
-          
-
-
-        </div>
-
-
 
         <div className="flex items-center gap-1 py-1 mt-[5px]">
           <p className="text-[14px] font-bold text-[#FFFFFF]">
@@ -198,7 +228,10 @@ const TabGeneral = (props: SettingProps) => {
           </div>
         </div>
 
-        <div className="flex flex-row justify-between items-center gap-3 ">
+        <div
+          ref={dropdownRef}
+          className="flex flex-row justify-between items-center gap-3 "
+        >
           <div className="relative inline-block text-left  mt-2 w-full">
             <div className="w-full">
               <button
@@ -224,15 +257,18 @@ const TabGeneral = (props: SettingProps) => {
             </div>
 
             {isOpen && (
-              <div className="origin-top-right absolute mt-2 w-full rounded-md shadow-lg bg-[#333333] text-[#C0C0C0]
-                ring-1 ring-black ring-opacity-5 z-[1]">
+              <div
+                className="origin-top-right absolute mt-2 w-full rounded-md shadow-lg bg-[#333333] text-[#C0C0C0]
+                ring-1 ring-black ring-opacity-5 z-[1]"
+              >
                 <div className="py-1">
                   {options.map((option: any) => (
                     <button
                       key={option.label}
                       onClick={(e) => handleSelect(e, option)}
-                      className={`${option.locked ? "text-[#C0C0C0]" : "text-[#C0C0C0]"
-                        } group flex justify-between items-center px-4 py-2 text-sm w-full`}
+                      className={`${
+                        option.locked ? "text-[#C0C0C0]" : "text-[#C0C0C0]"
+                      } group flex justify-between items-center px-4 py-2 text-sm w-full`}
                       disabled={option.locked}
                     >
                       {option.label}
@@ -243,14 +279,19 @@ const TabGeneral = (props: SettingProps) => {
             )}
           </div>
           <p className="text-[14px] font-bold text-[#858686]">to</p>
-          <div className="relative inline-block text-left mt-2 w-full">
+          <div
+            ref={dropdownRef1}
+            className="relative inline-block text-left mt-2 w-full"
+          >
             <div className="w-full">
               <button
                 type="button"
                 onClick={toggleDropdown1}
                 className="inline-flex justify-between w-full  rounded-md shadow-sm px-4 py-2 bg-[#0F0F0F] text-sm font-medium text-[#7A7A7A] focus:outline-none border border-[#7A7A7A]"
               >
-                {setting?.run_ended_at === '24:00' ? '00:00' : setting?.run_ended_at}
+                {setting?.run_ended_at === "24:00"
+                  ? "00:00"
+                  : setting?.run_ended_at}
                 <svg
                   className="-mr-1 ml-2 h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
@@ -268,7 +309,8 @@ const TabGeneral = (props: SettingProps) => {
             </div>
 
             {isOpen1 && (
-              <div className="origin-top-right absolute mt-2 w-full rounded-md shadow-lg
+              <div
+                className="origin-top-right absolute mt-2 w-full rounded-md shadow-lg
                 bg-[#333333] text-[#C0C0C0] ring-1 ring-black ring-opacity-5 z-[1]"
               >
                 <div className="py-1">
@@ -276,8 +318,9 @@ const TabGeneral = (props: SettingProps) => {
                     <button
                       key={option.label}
                       onClick={(e) => handleSelect1(e, option)}
-                      className={`${option.locked ? "text-[#C0C0C0]" : "text-[#C0C0C0]"
-                        } group flex justify-between items-center px-4 py-2 text-sm w-full`}
+                      className={`${
+                        option.locked ? "text-[#C0C0C0]" : "text-[#C0C0C0]"
+                      } group flex justify-between items-center px-4 py-2 text-sm w-full`}
                       disabled={option.locked}
                     >
                       {option.label}
@@ -318,9 +361,7 @@ const TabGeneral = (props: SettingProps) => {
             </div>
           </div>
         </div> */}
-
-
-      </div >
+      </div>
     </>
   );
 };
