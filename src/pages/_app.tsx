@@ -19,23 +19,23 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 export default function App({ Component, pageProps }: AppProps) {
-  // useEffect(() => {
-  //   // Disable right-click
-  //   document.addEventListener("contextmenu", (event) => event.preventDefault());
+  useEffect(() => {
+    // Disable right-click
+    document.addEventListener("contextmenu", (event) => event.preventDefault());
 
-  //   // Disable F12 and Ctrl+Shift+I
-  //   document.onkeydown = function (e) {
-  //     if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-  //       return false;
-  //     }
-  //   };
+    // Disable F12 and Ctrl+Shift+I
+    document.onkeydown = function (e) {
+      if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+        return false;
+      }
+    };
 
-  //   return () => {
-  //     document.removeEventListener("contextmenu", (event) =>
-  //       event.preventDefault()
-  //     );
-  //   };
-  // }, []);
+    return () => {
+      document.removeEventListener("contextmenu", (event) =>
+        event.preventDefault()
+      );
+    };
+  }, []);
   return (
     <AppLayout>
       <Component {...pageProps} />
