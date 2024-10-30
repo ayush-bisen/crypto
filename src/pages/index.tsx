@@ -61,31 +61,35 @@ export default function Home() {
           <div className="mt-[105px] w-[1060px]">
             <p className="font-bold text-center px-2">
               {/* w-[1248px] */}
-              <span className="w-[1248px] text-[24px]  md:text-[48px] xl:text-[58px] font-bold text-center text-white">
+              <span className="w-[1248px] text-[24px]  md:text-[33px] xl:text-[58px] font-bold text-center text-white">
+                {/* md:text-[48px] */}
                 Trade Smarter With
               </span>
               <br />
-              <span className="w-[1248px] text-[48px] md:text-[72px] xl:text-[82px] font-bold text-center text-white">
+              {/* <span className="w-[1248px] text-[48px] md:text-[72px] xl:text-[82px] font-bold text-center text-white">
                 Blockbit{" "}
-              </span>
-              <span className="w-[1248px] text-[48px] md:text-[72px] xl:text-[82px] font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#E8DFFF] via-[#A945F3] via-[#DC52BA] to-[#FFFFFF]">
-                Solana Sniper Bot
+              </span> */}
+              <span className="sm:whitespace-nowrap w-[1248px] text-[48px] md:text-[57px] xl:text-[82px] font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#E8DFFF] via-[#A945F3] via-[#DC52BA] to-[#FFFFFF]">
+                {/* md:text-[72px] */}
+                Blockbit Solana Sniper Bot
               </span>
             </p>
-            ;
+
             <div
-              className="text-[20px] mt-[36px] flex justify-center font-normal
+              className="text-[20px]  mt-[6px] flex justify-center font-normal
               bg-clip-text text-[#C2C2C2]"
             >
-              Start Trading Today For Free
+              {/* mt-[36px] */}
+              <p>Start Trading Today For Free</p>
             </div>
           </div>
         </div>
         <div className="flex justify-center relative z-10">
-          <div className="relative inline-block mt-[36px] p-[3px] rounded-[48px] bg-gradient-to-r from-[#1E90FF] to-[#0000CD] hover:bg-radial-gradient hover:from-[#2593F9] hover:to-[#155B9B]">
+          <div className="relative inline-block mt-[33px] p-[3px] rounded-[48px] bg-gradient-for-wallet hover:bg-radial-gradient hover:bg-custom-hover-gradient">
+            {/* mt-[36px] */}
             <button
               onClick={onClickWalletConnect}
-              className="flex items-center justify-center  px-[48px] py-[16px] rounded-[48px] text-white text-[20px] font-bold bg-[#171717] w-full h-full hover:bg-gradient-to-r hover:from-[#1E90FF] hover:to-[#155B9B] hover:text-[#FFFF]"
+              className="flex items-center justify-center px-[48px] py-[16px] rounded-[48px] text-white text-[20px] font-bold bg-black w-full h-full hover:bg-custom-hover-gradient hover:text-[#FFFF]"
             >
               <Image
                 alt="Launch Icon"
@@ -139,7 +143,7 @@ export default function Home() {
         </div>
         {/* section-1 completed here */}
         {/* section-2 start from here */}
-
+        {/* Auto Scan  */}
         <div
           className=" flex flex-col justify-between items-start mt-[100px] lg:flex-row md:mt-[100px] lg:mt-[200px] relative z-10 bg-cover bg-center w-full max-w-[1332px] m-auto gap-4 lg:gap-52 px-[20px]"
           // px-[20px] md:px-[50px] lg:px-[169px] md:px-[80px] h-[700px]
@@ -183,7 +187,7 @@ export default function Home() {
                 filters
               </p>
             </div>
-            <div className="relative group flex justify-center items-center flex-grow-0 flex-shrink-0 sm:h-[62px] gap-2 sm:pl-9 sm:pr-7 sm:py-6 pl-6 pr-4 py-3 rounded-[42px] transition-all duration-300 ease-in-out">
+            <div className="relative group flex justify-center items-center flex-grow-0 flex-shrink-0 sm:h-[62px] gap-2 sm:pl-9 sm:pr-7 sm:py-6 pl-6 pr-4 py-3 rounded-[42px] transition-all duration-300 ease-in-out bg-gradient-to-r from-[#28a7cf] to-[#9283ee] hover:bg-custom-hover-gradient">
               <p className="flex-grow-0 flex-shrink-0 text-[14px] sm:text-[20px] md:text-[20px] font-bold text-center text-white z-10">
                 Start Trading
               </p>
@@ -195,10 +199,11 @@ export default function Home() {
                 className="z-10"
               />
               {/* Border with gradient and hover effect */}
-              <div className="absolute inset-0 rounded-[42px] border-[2px] border-transparent bg-gradient-to-r from-[#28a7cf] to-[#9283ee] p-[1px] transition-all duration-300 ease-in-out group-hover:bg-gradient-to-r group-hover:from-[#28a7cf] group-hover:to-[#9283ee]">
-                {/* Button Background that changes on hover */}
+              {/* commenting this button div bcz for figma design  */}
+              {/* <div className="absolute inset-0 rounded-[42px] border-[2px] border-transparent bg-gradient-to-r from-[#28a7cf] to-[#9283ee] p-[1px] transition-all duration-300 ease-in-out group-hover:bg-gradient-to-r group-hover:from-[#28a7cf] group-hover:to-[#9283ee]">
+                Button Background that changes on hover
                 <div className="h-full w-full rounded-[42px] bg-[#171717] group-hover:bg-gradient-to-r group-hover:from-[#28a7cf] group-hover:to-[#9283ee]"></div>
-              </div>
+              </div> */}
             </div>
           </div>
           {/* div for the image  */}
@@ -270,10 +275,10 @@ export default function Home() {
                 className="z-10"
               />
               {/* Border with gradient and hover effect */}
-              <div className="absolute inset-0 rounded-[42px] border-[2px] border-transparent bg-gradient-to-r from-[#28a7cf] to-[#9283ee] p-[1px] transition-all duration-300 ease-in-out group-hover:bg-gradient-to-r group-hover:from-[#28a7cf] group-hover:to-[#9283ee]">
-                {/* Button Background that changes on hover */}
+              {/* <div className="absolute inset-0 rounded-[42px] border-[2px] border-transparent bg-gradient-to-r from-[#28a7cf] to-[#9283ee] p-[1px] transition-all duration-300 ease-in-out group-hover:bg-gradient-to-r group-hover:from-[#28a7cf] group-hover:to-[#9283ee]">
+                Button Background that changes on hover
                 <div className="h-full w-full rounded-[42px] bg-[#171717] group-hover:bg-gradient-to-r group-hover:from-[#28a7cf] group-hover:to-[#9283ee]"></div>
-              </div>
+              </div> */}
             </div>
           </div>
           {/* div for the section image  */}
@@ -316,7 +321,7 @@ export default function Home() {
                   Auto buy & sell based on your strategy setup.
                 </p>
               </div>
-              <div className="relative group flex justify-center items-center flex-grow-0 flex-shrink-0 sm:h-[62px] gap-2 sm:pl-9 sm:pr-7 sm:py-6 pl-6 pr-4 py-3 rounded-[42px] transition-all duration-300 ease-in-out">
+              <div className="relative group flex justify-center items-center flex-grow-0 flex-shrink-0 sm:h-[62px] gap-2 sm:pl-9 sm:pr-7 sm:py-6 pl-6 pr-4 py-3 rounded-[42px] transition-all duration-300 ease-in-out bg-gradient-to-r from-[#28a7cf] to-[#9283ee] hover:bg-custom-hover-gradient">
                 <p className="flex-grow-0 flex-shrink-0 text-[14px] sm:text-[20px] md:text-[20px] font-bold text-center text-white z-10">
                   Start Trading
                 </p>
@@ -328,10 +333,10 @@ export default function Home() {
                   className="z-10"
                 />
                 {/* Border with gradient and hover effect */}
-                <div className="absolute inset-0 rounded-[42px] border-[2px] border-transparent bg-gradient-to-r from-[#28a7cf] to-[#9283ee] p-[1px] transition-all duration-300 ease-in-out group-hover:bg-gradient-to-r group-hover:from-[#28a7cf] group-hover:to-[#9283ee]">
-                  {/* Button Background that changes on hover */}
+                {/* <div className="absolute inset-0 rounded-[42px] border-[2px] border-transparent bg-gradient-to-r from-[#28a7cf] to-[#9283ee] p-[1px] transition-all duration-300 ease-in-out group-hover:bg-gradient-to-r group-hover:from-[#28a7cf] group-hover:to-[#9283ee]">
+                  Button Background that changes on hover
                   <div className="h-full w-full rounded-[42px] bg-[#171717] group-hover:bg-gradient-to-r group-hover:from-[#28a7cf] group-hover:to-[#9283ee]"></div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -369,7 +374,7 @@ export default function Home() {
                 Execute trades in Seconds.
               </p>
             </div>
-            <div className="relative group flex justify-center items-center flex-grow-0 flex-shrink-0 h-[62px] gap-2 pl-9 pr-7 py-6 rounded-[42px] transition-all duration-300 ease-in-out">
+            <div className="relative group flex justify-center items-center flex-grow-0 flex-shrink-0 h-[62px] gap-2 pl-9 pr-7 py-6 rounded-[42px] transition-all duration-300 ease-in-out bg-gradient-to-r from-[#28a7cf] to-[#9283ee] hover:bg-custom-hover-gradient">
               <p className="flex-grow-0 flex-shrink-0 text-[14px] sm:text-[20px] md:text-[20px] font-bold text-center text-white z-10">
                 Start Trading
               </p>
@@ -381,10 +386,10 @@ export default function Home() {
                 className="z-10"
               />
               {/* Border with gradient and hover effect */}
-              <div className="absolute inset-0 rounded-[42px] border-[2px] border-transparent bg-gradient-to-r from-[#28a7cf] to-[#9283ee] p-[1px] transition-all duration-300 ease-in-out group-hover:bg-gradient-to-r group-hover:from-[#28a7cf] group-hover:to-[#9283ee]">
-                {/* Button Background that changes on hover */}
+              {/* <div className="absolute inset-0 rounded-[42px] border-[2px] border-transparent bg-gradient-to-r from-[#28a7cf] to-[#9283ee] p-[1px] transition-all duration-300 ease-in-out group-hover:bg-gradient-to-r group-hover:from-[#28a7cf] group-hover:to-[#9283ee]">
+                Button Background that changes on hover
                 <div className="h-full w-full rounded-[42px] bg-[#171717] group-hover:bg-gradient-to-r group-hover:from-[#28a7cf] group-hover:to-[#9283ee]"></div>
-              </div>
+              </div> */}
             </div>
           </div>
           {/* div for the image  */}

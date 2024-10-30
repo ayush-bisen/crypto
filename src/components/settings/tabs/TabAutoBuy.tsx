@@ -40,12 +40,13 @@ const TabAutoBuy = (props: SettingProps) => {
       <div className="mt-[3px] sm:mt flex flex-col md:flex-row justify-center text-center gap-10 p-4">
         {/* pb-4 px-2 */}
         <div className="flex-1 min-w-[300px]">
-          <div className="flex items-center gap-1 py-1 justify-between">
-            <p className="text-[14px] font-bold text-[#FFFFFF]">
-              Auto-Buy Amount :
-            </p>
-            {/* //Add here drop dwon menu  */}
-            {/* <div className="bg-[#0F0F0F] border  border-[#7A7A7A] flex w-[100px] h-[30px]  gap-1  rounded-[20px] items-center mt-[8px]">
+          <div className="flex flex-col justiy-center gap-3">
+            <div className="flex items-center gap-1 py-1 justify-between">
+              <p className="text-[14px] font-bold text-[#FFFFFF]">
+                Auto-Buy Amount :
+              </p>
+              {/* //Add here drop dwon menu  */}
+              {/* <div className="bg-[#0F0F0F] border  border-[#7A7A7A] flex w-[100px] h-[30px]  gap-1  rounded-[20px] items-center mt-[8px]">
               <div className="flex items-center gap-1 px-2 w-fit">
                 <Image src={IMG_SOL} width={25} height={25} alt="image" />
               </div>
@@ -62,28 +63,28 @@ const TabAutoBuy = (props: SettingProps) => {
                 />
               </div>
             </div> */}
-            <AutoBuyDropdown
-              options={["0.1", "0.2", "0.3"]}
-              value={setting?.buy_initial_invest_sol || "0.1"}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="flex flex-row gap-2">
-            <Info
-              size={20}
-              color="white"
-              className="cursor-pointer text-transparent bg-gradient-to-r from-[#28A7CF] to-[#9283EE] rounded-xl"
-            />
-            <p className="text-[10px] md:text-[14px] font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#28A7CF] to-[#9283EE]">
-              Only Buy When all the conditions below are met
-            </p>
-          </div>
-          <div className="flex items-center gap-1 py-1 justify-between">
-            <p className="text-[14px] font-bold text-[#FFFFFF]">
-              Pool Size (SOL):
-            </p>
+              <AutoBuyDropdown
+                options={["0.1", "0.2", "0.3"]}
+                value={setting?.buy_initial_invest_sol || "0.1"}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="flex flex-row gap-2">
+              <Info
+                size={20}
+                color="white"
+                className="cursor-pointer text-transparent bg-gradient-to-r from-[#28A7CF] to-[#9283EE] rounded-xl"
+              />
+              <p className="text-[10px] md:text-[14px] font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#28A7CF] to-[#9283EE]">
+                Only Buy When all the conditions below are met
+              </p>
+            </div>
+            <div className="flex items-center gap-1 py-1 justify-between">
+              <p className="text-[14px] font-bold text-[#FFFFFF]">
+                Pool Size (SOL):
+              </p>
 
-            {/* <div className="bg-[#0F0F0F] border border-[#7A7A7A] flex w-[100px] h-[30px] gap-1 rounded-[20px] items-center mt-[8px]">
+              {/* <div className="bg-[#0F0F0F] border border-[#7A7A7A] flex w-[100px] h-[30px] gap-1 rounded-[20px] items-center mt-[8px]">
               <div className="w-full px-1">
                 <select
                   className="text-white text-[14px] bg-transparent border-none outline-none p-1.5 w-full cursor-pointer"
@@ -100,18 +101,18 @@ const TabAutoBuy = (props: SettingProps) => {
                 </select>
               </div>
             </div> */}
-            <CustomDroplist
-              options={["1-1000", "10-1000", "50-1000", "100-1000", "1000+"]}
-              value={setting?.buy_pooled_sol_size || "1-1000"}
-              onChange={handleChangeSOL}
-            />
-          </div>
-          <div className="flex items-center gap-1 py-1 justify-between">
-            <p className="text-[14px] font-bold text-[#FFFFFF]">
-              Pool Size (Token):
-            </p>
+              <CustomDroplist
+                options={["1-1000", "10-1000", "50-1000", "100-1000", "1000+"]}
+                value={setting?.buy_pooled_sol_size || "1-1000"}
+                onChange={handleChangeSOL}
+              />
+            </div>
+            <div className="flex items-center gap-1 py-1 justify-between">
+              <p className="text-[14px] font-bold text-[#FFFFFF]">
+                Pool Size (Token):
+              </p>
 
-            {/* <div className="bg-[#0F0F0F] border border-[#7A7A7A] flex w-[100px] h-[30px] gap-1 rounded-[20px] items-center mt-[8px]">
+              {/* <div className="bg-[#0F0F0F] border border-[#7A7A7A] flex w-[100px] h-[30px] gap-1 rounded-[20px] items-center mt-[8px]">
               <div className="w-full px-1">
                 <select
                   className="text-white text-[14px] bg-transparent border-none outline-none p-1.5 w-full cursor-pointer"
@@ -128,22 +129,24 @@ const TabAutoBuy = (props: SettingProps) => {
                 </select>
               </div>
             </div> */}
-            <CustomDroplist
-              options={[
-                "<5%",
-                "5%-100%",
-                "10%-100%",
-                "25%-100%",
-                "50%-100%",
-                "75%-100%",
-              ]}
-              value={setting?.buy_pooled_token || "<5%"}
-              onChange={handleChangeTOKEN}
-            />
-          </div>
-          <div className="flex items-center gap-1 py-1 justify-between">
-            <p className="text-[14px] font-bold text-[#FFFFFF]">24H Change :</p>
-            {/* <div className="bg-[#0F0F0F] border border-[#7A7A7A] flex w-[100px] h-[30px] gap-1 rounded-[20px] items-center mt-[8px]">
+              <CustomDroplist
+                options={[
+                  "<5%",
+                  "5%-100%",
+                  "10%-100%",
+                  "25%-100%",
+                  "50%-100%",
+                  "75%-100%",
+                ]}
+                value={setting?.buy_pooled_token || "<5%"}
+                onChange={handleChangeTOKEN}
+              />
+            </div>
+            <div className="flex items-center gap-1 py-1 justify-between">
+              <p className="text-[14px] font-bold text-[#FFFFFF]">
+                24H Change :
+              </p>
+              {/* <div className="bg-[#0F0F0F] border border-[#7A7A7A] flex w-[100px] h-[30px] gap-1 rounded-[20px] items-center mt-[8px]">
               <div className="w-full px-1">
                 <select
                   className="text-white text-[14px] bg-transparent border-none outline-none p-1.5 w-full cursor-pointer"
@@ -160,18 +163,19 @@ const TabAutoBuy = (props: SettingProps) => {
                 </select>
               </div>
             </div> */}
-            <CustomDroplist
-              options={[
-                "<100%",
-                "100%-1000%",
-                "500%-10,000%",
-                "1000%-10,000%",
-                "5000%-10,000%",
-                "10,000%+",
-              ]}
-              value={setting?.buy_24h_change || "<100%"}
-              onChange={handleChange24Hchange}
-            />
+              <CustomDroplist
+                options={[
+                  "<100%",
+                  "100%-1000%",
+                  "500%-10,000%",
+                  "1000%-10,000%",
+                  "5000%-10,000%",
+                  "10,000%+",
+                ]}
+                value={setting?.buy_24h_change || "<100%"}
+                onChange={handleChange24Hchange}
+              />
+            </div>
           </div>
           {/* <div className="flex flex-col items-center justify-center gap-4  mt-3"> */}
           {/* <div className="w-full flex justify-between items-center gap-1 cursor-pointer  bg-gray-800 py-5 rounded-md ">
@@ -304,6 +308,20 @@ const TabAutoBuy = (props: SettingProps) => {
             {/* <Image src={IMG_LOCK} alt="" width={16} height={16} className="" /> */}
           </div>
           {/* </div> */}
+          <div className="flex flex-row w-full gap-2 mt-6 ">
+            <button
+              // onClick={onUpdateSetting}
+              className="flex-1 text-transparent bg-gradient-to-r from-[#28A7CF] to-[#9283EE] hover:bg-custom-hover-gradient rounded-[7px] px-4 py-2 text-white text-base font-bold"
+            >
+              Update
+            </button>
+            <button
+              // onClick={onCancelSetting}
+              className="flex-1 bg-[#202020] hover:bg-[#2c2c2c] border border-[#7A7A7A] rounded-[7px] px-4 py-2 text-white text-base font-bold"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
         {/* Dynamic Navbar */}
 

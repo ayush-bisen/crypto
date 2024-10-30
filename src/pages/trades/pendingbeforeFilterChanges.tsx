@@ -38,6 +38,7 @@ import QuickBuyAmountDropDown from "@/components/QuickBuyAmountDropDwon";
 const PendingPools = () => {
   const router = useRouter();
   const [pendingPools, setPendingPools] = useState<Pool[]>([]);
+  const [filteredPools, setFilteredPools] = useState<Pool[]>([]);
   const [setting, setSetting]: any = useState(0); //sets setting to zero for dummy data
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [selectedPoolID, setSelectedPoolID] = useState(0);
@@ -90,7 +91,7 @@ const PendingPools = () => {
         pool_open_time: "2024-09-25T10:00:00Z",
         price_24h: -2.45,
         lp_burned_percent: 96,
-        pooled_sol: 10,
+        pooled_sol: 120,
         pooled_token_percent: 4,
         token_logo_url: "/path/to/token_logo.png",
         can_freeze: true,
@@ -107,7 +108,7 @@ const PendingPools = () => {
         pool_open_time: "2024-09-24T15:00:00Z",
         price_24h: 1.23,
         lp_burned_percent: 50,
-        pooled_sol: 48.9, // < 50
+        pooled_sol: 20,
         pooled_token_percent: 80.12,
         token_logo_url: "/path/to/btc_logo.png",
         can_freeze: false,
@@ -119,76 +120,57 @@ const PendingPools = () => {
     {
       id: 3,
       pending_pool: {
-        pool_name: "ETH/USDC",
-        pool_url: "/eth-usdc-pool",
-        pool_open_time: "2024-10-01T10:30:00Z",
-        price_24h: 3.4,
-        lp_burned_percent: 75,
-        pooled_sol: 95, // < 100
-        pooled_token_percent: 65,
-        token_logo_url: "/path/to/eth_logo.png",
+        pool_name: "SOL/USDC",
+        pool_url: "/sol-usdc-pool",
+        pool_open_time: "2024-09-25T10:00:00Z",
+        price_24h: -2.45,
+        lp_burned_percent: 96,
+        pooled_sol: 120.4532,
+        pooled_token_percent: 65.32,
+        token_logo_url: "/path/to/token_logo.png",
         can_freeze: true,
-        can_mint: true,
-        top_10_percent: 20,
+        can_mint: false,
+        top_10_percent: 8,
       },
-      status: 1, // Buying
+      status: 0, // Waiting
     },
     {
       id: 4,
       pending_pool: {
-        pool_name: "SOL/BTC",
-        pool_url: "/sol-btc-pool",
-        pool_open_time: "2024-09-28T13:00:00Z",
-        price_24h: -0.87,
-        lp_burned_percent: 88,
-        pooled_sol: 310.876,
-        pooled_token_percent: 45,
-        token_logo_url: "/path/to/solbtc_logo.png",
-        can_freeze: false,
+        pool_name: "SOL/USDC",
+        pool_url: "/sol-usdc-pool",
+        pool_open_time: "2024-09-25T10:00:00Z",
+        price_24h: -2.45,
+        lp_burned_percent: 96,
+        pooled_sol: 120.4532,
+        pooled_token_percent: 100,
+        token_logo_url: "/path/to/token_logo.png",
+        can_freeze: true,
         can_mint: false,
-        top_10_percent: 5,
+        top_10_percent: 8,
       },
-      status: 2, // Sold Out
+      status: 0, // Waiting
     },
     {
       id: 5,
       pending_pool: {
-        pool_name: "ADA/SOL",
-        pool_url: "/ada-sol-pool",
-        pool_open_time: "2024-09-30T09:15:00Z",
-        price_24h: 1.75,
-        lp_burned_percent: 60,
-        pooled_sol: 30.5, // < 50
-        pooled_token_percent: 30.5,
-        token_logo_url: "/path/to/ada_logo.png",
+        pool_name: "SOL/USDC",
+        pool_url: "/sol-usdc-pool",
+        pool_open_time: "2024-09-25T10:00:00Z",
+        price_24h: -2.45,
+        lp_burned_percent: 96,
+        pooled_sol: 120.4532,
+        pooled_token_percent: 65,
+        token_logo_url: "/path/to/token_logo.png",
         can_freeze: true,
         can_mint: false,
-        top_10_percent: 25,
-      },
-      status: 1, // Buying
-    },
-    {
-      id: 6,
-      pending_pool: {
-        pool_name: "DOT/SOL",
-        pool_url: "/dot-sol-pool",
-        pool_open_time: "2024-09-26T14:45:00Z",
-        price_24h: -1.11,
-        lp_burned_percent: 40,
-        pooled_sol: 99.5, // < 100
-        pooled_token_percent: 15.75,
-        token_logo_url: "/path/to/dot_logo.png",
-        can_freeze: false,
-        can_mint: true,
-        top_10_percent: 10,
+        top_10_percent: 8,
       },
       status: 0, // Waiting
     },
-    // More dummy data as needed
+    // Add more dummy data as needed
   ];
-
   // console.log(dummyPools.filter((pool) => pool.pending_pool.pooled_sol > 200));
-
   useEffect(() => {
     setPendingPools(dummyPools);
   }, []);
@@ -198,7 +180,6 @@ const PendingPools = () => {
       dummyPools.filter((pool) => pool.pending_pool.pooled_sol > 200)
     );
   };
-  // const [pendingPools, setPendingPools] = useState<Pool[]>(dummyPools);
 
   const columns = [
     {
@@ -670,17 +651,10 @@ const PendingPools = () => {
   };
 
   // Filter code start from here
-  const [filteredPools, setFilteredPools] = useState<Pool[]>([]);
-  useEffect(() => {
-    setFilteredPools(dummyPools);
-  }, []);
 
-  const [selectedSOLSize, setSelectedSOLSize] = useState("");
-  // 1-1000
-  const [selectedTokenPercent, setSelectedTokenPercent] = useState("");
-  // 5%-100%
-  const [selectedPriceChange, setSelectedPriceChange] = useState("");
-  // <100%
+  const [selectedSOLSize, setSelectedSOLSize] = useState("1-1000");
+  const [selectedTokenPercent, setSelectedTokenPercent] = useState("<5%");
+  const [selectedPriceChange, setSelectedPriceChange] = useState("<100%");
   const onChangeSettingValue = (e: any, key: string, changedValue = "") => {
     let value = changedValue ? changedValue : e.target.value;
     if (value === "on" || key === "is_bot_on") {
@@ -723,17 +697,16 @@ const PendingPools = () => {
         const { pooled_sol } = pool.pending_pool;
         return (
           pooled_sol >= minSOL &&
-          (maxSOL === 999 ? pooled_sol <= Infinity : pooled_sol < maxSOL)
+          (maxSOL === 1000 ? pooled_sol <= Infinity : pooled_sol < maxSOL)
         );
       });
     }
 
-    // // Filter by Pool Size (TOKEN)
+    // Filter by Pool Size (TOKEN)
     if (selectedTokenPercent) {
       const [minPercent, maxPercent] = selectedTokenPercent
-        .replace(/%/g, "")
-        .split("-")
-        .map(Number);
+        .split("%")
+        .map((val, index) => (index === 0 ? Number(val) : Number(val) / 100));
       newFilteredPools = newFilteredPools.filter((pool) => {
         const { pooled_token_percent } = pool.pending_pool;
         return (
@@ -743,38 +716,19 @@ const PendingPools = () => {
       });
     }
 
-    // // Filter by 24H Change
+    // Filter by 24H Change
     if (selectedPriceChange) {
-      const result = selectedPriceChange
-        .replace(/%/g, "")
-        .split("-")
-        .map((item) => item.trim());
-      console.log(result);
-      if (result[0] === "<100") {
-        const num = Number(result[0].replace(/</g, ""));
-
-        newFilteredPools = newFilteredPools.filter((pool) => {
-          const { price_24h } = pool.pending_pool;
-          return price_24h <= num;
-        });
-      } else {
-        const numbers = [
-          parseInt(result[0]),
-          parseFloat(result[1]?.replace(/,/g, "")),
-        ];
-        const [minChange, maxChange] = numbers;
-        newFilteredPools = newFilteredPools.filter((pool) => {
-          const { price_24h } = pool.pending_pool;
-          return (
-            price_24h >= minChange &&
-            (maxChange === 999 ? price_24h <= Infinity : price_24h < maxChange)
-          );
-        });
-      }
+      const [minChange, maxChange] = selectedPriceChange.split("%").map(Number);
+      newFilteredPools = newFilteredPools.filter((pool) => {
+        const { price_24h } = pool.pending_pool;
+        return (
+          price_24h >= minChange &&
+          (maxChange === 1000 ? price_24h <= Infinity : price_24h < maxChange)
+        );
+      });
     }
 
     setFilteredPools(newFilteredPools);
-    // setPendingPools(newFilteredPools);
   };
 
   useEffect(() => {
@@ -786,15 +740,12 @@ const PendingPools = () => {
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
-  const toggleModalForCloseFilter = () => {
-    setIsModalOpen(!isModalOpen);
-    setFilteredPools(dummyPools);
-  };
   const [showPopup, setShowPopup] = useState(false);
   const togglePopUp = () => {
     setShowPopup(!showPopup);
   };
-
+  console.log(filteredPools);
+  console.log(pendingPools);
   return (
     <>
       {publicKey ? (
@@ -1102,7 +1053,7 @@ const PendingPools = () => {
                 )}
               </TableHeader>
 
-              <TableBody items={filteredPools}>
+              <TableBody items={pendingPools}>
                 {(item: any) => (
                   <TableRow
                     key={item.id}
@@ -1222,7 +1173,7 @@ const PendingPools = () => {
                 {/* Your filter options go here buttons start from here*/}
                 <div className="flex flex-row justify-between">
                   <button
-                    onClick={toggleModalForCloseFilter}
+                    onClick={toggleModal}
                     className="mt-4 px-4 py-2 bg-transparent text-white rounded-xl border-1 border-white"
                   >
                     Clear filter

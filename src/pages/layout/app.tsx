@@ -38,13 +38,13 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
         <UpdateSettingProvider>
           <div
             className={`${inter.className} h-screen   bg-[#0F0F0F] flex flex-col`}
-            style={{
-              background:
-                "radial-gradient(circle at bottom left, #191A35, #0a0b1e, #01171E, #04031e, #000000)",
-              height: "100vh",
-              margin: 0,
-              // #121212, #0a0b1e, #06061e, #04031e, #000000
-            }}
+            // style={{
+            //   background:
+            //     "radial-gradient(circle at bottom left, #191A35, #0a0b1e, #01171E, #04031e, #000000)",
+            //   height: "100vh",
+            //   margin: 0,
+            //   // #121212, #0a0b1e, #06061e, #04031e, #000000
+            // }}
           >
             <ToastContainer></ToastContainer>
             <Navigation />
@@ -74,7 +74,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                 <a href="https://discord.gg/pbbkRCG2kf" target="_blank">
                   <div
                     className="bg-gray-800 
-                  z-[100] flex justify-center w-[300px] text-start rounded-[16px] items-center cursor-pointer"
+                  z-[100] flex justify-center w-[315px] text-start rounded-[16px] items-center cursor-pointer"
                   >
                     <Image
                       src={IMG_DISCORD}
@@ -91,7 +91,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                 </a>
                 <div
                   className="absolute right-[12px] top-[8px] text-[12px] text-[#E0E0E0]
-                  cursor-pointer drop-shadow-lg hover:text-[#FFFFFF]"
+                  cursor-pointer drop-shadow-lg hover:text-[#FFFFFF] font-bold"
                   style={{ textShadow: "1px 1px black" }}
                   onClick={onClickCloseDiscord}
                 >

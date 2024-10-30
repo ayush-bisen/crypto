@@ -402,7 +402,7 @@ const Step1 = (props: NextProps) => {
                   <Image src={BttnsssA} alt="fff" />
                 </button> */}
                 <button
-                  className="w-full bg-[#2B2B2B] rounded-[12px] py-[6px] mt-4 px-[24px] text-[#FFFFFF] mr-2 hover:bg-gradient-to-r hover:from-[#7C03A7] hover:to-[#18C5D0]"
+                  className="w-full h-[50px] rounded-[12px] py-[6px] mt-4 px-[24px] text-[#FFFFFF] mr-2 bg-custom-hover-gradient-wallet hover:bg-gradient-to-r hover:from-[#2593F9] hover:to-[#2593F9]"
                   onClick={handleGenerateClick}
                 >
                   Generate
@@ -467,7 +467,7 @@ const Step1 = (props: NextProps) => {
                 <Image src={Bttn} alt="gtt" />
               </button> */}
               <button
-                className="w-full bg-[#2B2B2B] rounded-[12px] py-[6px] my-5 px-[24px] text-[#FFFFFF] mr-2 hover:bg-gradient-to-r hover:from-[#7C03A7] hover:to-[#18C5D0]"
+                className="w-full h-[50px] rounded-[12px] py-[6px] my-5 px-[24px] text-[#FFFFFF] mr-2 bg-custom-hover-gradient-wallet hover:bg-gradient-to-r hover:from-[#2593F9] hover:to-[#2593F9]"
                 onDoubleClick={nextStep}
               >
                 Double click (2X) here to reveal your private key
@@ -638,7 +638,7 @@ const Step2 = (props: NextProps) => {
                 <Image src={Bttns} alt="gtt" />
               </button> */}
               <button
-                className="w-full bg-[#2B2B2B] rounded-[12px] py-[6px] my-5 px-[24px] text-[#FFFFFF] mr-2 hover:bg-gradient-to-r hover:from-[#7C03A7] hover:to-[#18C5D0]"
+                className="w-full h-[50px] rounded-[12px] py-[6px] my-5 px-[24px] text-[#FFFFFF] mr-2 bg-custom-hover-gradient-wallet hover:bg-gradient-to-r hover:from-[#2593F9] hover:to-[#2593F9]"
                 onClick={() => setShowPopup(true)}
               >
                 I copied, Continue
@@ -825,7 +825,7 @@ const Step3 = (props: RestartProps) => {
               width={30}
               height={30}
               alt="img"
-              className="w-[30px] h-[30px] ml-2 mt-[6px]"
+              className="w-[30px] h-[30px]"
             />
 
             <div className="text-[32px] sm:text-[30px] font-normal">
@@ -870,7 +870,7 @@ const Step3 = (props: RestartProps) => {
             //   <Image src={Bttnsss} alt="dff" />
             // </button>
             <button
-              className="w-full bg-[#2B2B2B] rounded-[12px] py-[6px] my-5 px-[24px] text-[#FFFFFF] mr-2 hover:bg-gradient-to-r hover:from-[#7C03A7] hover:to-[#18C5D0]"
+              className="w-full h-[50px] rounded-[12px] py-[6px] my-5 px-[24px] text-[#FFFFFF] mr-2 bg-custom-hover-gradient-wallet hover:bg-gradient-to-r hover:from-[#2593F9] hover:to-[#2593F9]"
               onClick={onRefreshBalance}
             >
               Refresh / Check Balance

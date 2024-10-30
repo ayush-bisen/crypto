@@ -480,7 +480,8 @@ const OpenTrades = () => {
       case "action":
         return (
           <>
-            <div className="flex items-center justify-between w-[300px]">
+            <div className="flex items-center justify-between w-[280px]">
+              {/* w-[300px] */}
               <div className="flex items-center">
                 <Link target="_blank" href={pool_url} className="mr-6">
                   <Image
@@ -504,8 +505,9 @@ const OpenTrades = () => {
               </div>
 
               <button
-                className="bg-[#2B2B2B] rounded-[52px] py-[6px]
+                className="bg-[#2B2B2B] rounded-[52px] py-[6px] text-[13px]
                 px-[24px] text-[#FFFFFF] mr-2 hover:bg-gradient-to-r hover:from-[#7C03A7] hover:to-[#18C5D0]"
+                // bg-[#2B2B2B] rounded-[52px] text-[13px] py-[6px] px-[24px] text-[#FFFFFF] mr-2
                 onClick={() => onQuickSellOpenPool(open_pool.id)}
               >
                 Quick Buy
@@ -575,11 +577,11 @@ const OpenTrades = () => {
               </p>
             </div>
 
-            <div className="flex-1 sm:flex sm:justify-end">
+            <div className="flex-1 sm:flex sm:justify-end ">
               <Link href="/settings">
                 <div
                   className="w-[150px] border cursor-pointer rounded-[10px] flex bg-[#202020]
-            justify-between px-2 items-center  py-1.5 sm:ml-auto border-gray-500"
+            justify-between px-2 items-center  py-1.5 sm:ml-auto border-gray-500 hover:bg-custom-hover-gradient hover:border-none"
                 >
                   <Image
                     src={IMG_SETTING}

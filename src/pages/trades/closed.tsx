@@ -488,8 +488,8 @@ const ClosedPools = () => {
             </div>
 
             {/* Right Section: Statistics and Conditional Content */}
-            <div className="">
-              {/* Conditional rendering for hidden content */}
+            {/* <div className="">
+              Conditional rendering for hidden content
               {showHidden && (
                 <div className="mt-4 text-white text-[14px] w-full md:w-auto">
                   <p>Hidden Content Goes Here</p>
@@ -508,7 +508,7 @@ const ClosedPools = () => {
                   </span>
                 </div>
               </Link>
-            </div>
+            </div> */}
           </div>
 
           <div className="flex flex-row gap-3 sm:hidden">

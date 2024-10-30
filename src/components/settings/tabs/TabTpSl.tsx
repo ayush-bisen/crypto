@@ -294,7 +294,7 @@ const TabTpSl = (props: SettingProps) => {
               Auto - Sell the full position after
             </span>
             <CustomDropdown
-              options={["0.1", "0.5", "1", "2", "5"]}
+              options={["0.1", "0.3", "1", "2", "5"]}
               value={setting?.buy_initial_invest_sol || "0.1"}
               onChange={handleChange}
               add={"min"}
@@ -323,6 +323,20 @@ const TabTpSl = (props: SettingProps) => {
               </div>
             </div> */}
           </div>
+        </div>
+        <div className="flex flex-row w-full gap-2 mt-6 ">
+          <button
+            // onClick={onUpdateSetting}
+            className="flex-1 text-transparent bg-gradient-to-r from-[#28A7CF] to-[#9283EE] hover:bg-custom-hover-gradient rounded-[7px] px-4 py-2 text-white text-base font-bold"
+          >
+            Update
+          </button>
+          <button
+            // onClick={onCancelSetting}
+            className="flex-1 bg-[#202020] hover:bg-[#2c2c2c] border border-[#7A7A7A] rounded-[7px] px-4 py-2 text-white text-base font-bold"
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </>

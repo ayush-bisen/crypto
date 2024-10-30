@@ -222,7 +222,8 @@ const Navbar = () => {
                   {publicKey && profileImageSrc ? (
                     <Image
                       className="w-8 h-8 rounded-full"
-                      src={profileImageSrc}
+                      // src={profileImageSrc}
+                      src={IMG_PROFILE}
                       alt="user photo"
                       width={32}
                       height={32}

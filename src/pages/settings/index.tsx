@@ -427,7 +427,7 @@ const Settings = () => {
                 />
               )}
 
-              <div className="flex flex-row w-full gap-2 mt-4 p-2">
+              {/* <div className="flex flex-row w-full gap-2 mt-4 p-2">
                 <button
                   onClick={onUpdateSetting}
                   className="flex-1 text-transparent bg-gradient-to-r from-[#28A7CF] to-[#9283EE] rounded-[7px] px-4 py-2 text-white text-base font-bold"
@@ -440,7 +440,7 @@ const Settings = () => {
                 >
                   Cancel
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
 

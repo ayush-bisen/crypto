@@ -14,7 +14,14 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "custom-hover-gradient":
+          "linear-gradient(70deg, #1951C3, #25ACEB, #2E82EE)",
+        "custom-hover-gradient-wallet":
+          "linear-gradient(70deg, #0F1A92, #25ACEB, #3968E3)",
+        "gradient-for-wallet":
+          "linear-gradient(90deg, #1D4B41, #16a085, #2980b9)",
       },
+
       // screens: {
       //   xs: { max: "500px" },
       //   xss: { max: "600px" },

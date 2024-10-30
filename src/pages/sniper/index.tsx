@@ -409,7 +409,7 @@ const Spinner = () => {
                     onChangeSettingValue={onChangeSettingValue}
                   />
                 )}
-                <div className="flex flex-row w-full gap-2 mt-1 p-2">
+                {/* <div className="flex flex-row w-full gap-2 mt-1 p-2">
                   <button
                     onClick={onUpdateSetting}
                     className="flex-1 text-transparent bg-gradient-to-r from-[#28A7CF] to-[#9283EE] rounded-[16px] px-4 py-2 text-white text-base font-bold"
@@ -422,7 +422,7 @@ const Spinner = () => {
                   >
                     Cancel
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
 
